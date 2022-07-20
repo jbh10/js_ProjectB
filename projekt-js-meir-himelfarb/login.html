@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #flexContiner{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        left: 40%;
+        width: 300px;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+    <div id="flexContiner">
+    <div>firstName: <input type="text" id="firstName"></div>
+    <div>password: <input type="password" id="password"></div>
+    <div><button onclick="login()">login</button></div>
+    </div>
+    
+    
+     
+     
+
+    <script>
+        function login(){
+        let first = document.getElementById('firstName').value;
+       
+        let password = document.getElementById('password').value;
+       
+        let userThis = {
+            firstName:first,
+            password:password
+        }
+        localStorage.setItem("currentUser", JSON.stringify(userThis))
+       
+        let users = JSON.parse(localStorage.getItem('users'));
+        console.log(users);
+        
+        for(i = 0; i < users.length; i++){
+            let user1 = users[i];
+            if(user1.firstName == first  && user1.password ==password){
+                alert('login!!!')
+                localStorage.setItem("currentUser", JSON.stringify(userThis))
+                window.location.href = "project-main.html";
+                return;
+            }     
+        }
+        alert('not a user')}
+    </script>
+</body>
+</html>

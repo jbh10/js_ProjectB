@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="main-projekt.css" rel="stylesheet" type="text/css" />
+    <style>
+.pleyer{
+   width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 735px
+}
+.imgElem{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+}
+#img2{
+    background-color: brown;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+}
+
+/* .buttons{
+    position: relative;
+    left: 50%;    
+} */
+/* .button{
+    /* position: relative; */
+/* } */ 
+    </style>
+</head>
+<body onload="getScore()" onunload = "save()">
+    <div><p id="thisIsTheScore">This is the score</p></div>
+    
+    <div class="continer" id="continer">
+        <div class="road" id="road1"> 10 meter</div>
+        <div class="road" id="road2"> 10 meter</div>
+        <div class="pleyer" id="pleyer"> </div>
+        
+    </div>
+    <button id="start" onclick="start()">start</button>
+</div>
+    <script src="main-projekt.js"></script> 
+   
+</body>
+</html>

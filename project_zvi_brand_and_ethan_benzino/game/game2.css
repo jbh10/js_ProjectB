@@ -1,0 +1,89 @@
+body {
+    background-image: url("./backgroundImg.webp");
+    display: grid;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+
+
+
+#table1 {
+
+    border: 1px black solid;
+    margin: auto;
+    width: 50%;
+    background-color: white;
+
+
+
+
+}
+
+td {
+    border: 1px black solid;
+    width: 23.33%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+td .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+
+
+#score, #highscore {
+    border: 1px black solid;
+   
+    margin: auto;
+    text-align: center;
+    font-size: xx-large;
+    color:blue;
+    width: fit-content;
+   
+    background-color:rgb(250, 250, 250, 0.5);
+    border-radius: 15px;
+
+
+}
+
+#snake {
+    margin: auto;
+    size: 20%;
+}
+
+#backgroundImage {
+    opacity: 0;
+}
+p{
+    background-color:rgb(250, 250, 250, 0.5);
+    border-radius: 15px;
+}
+h1{
+    background-color:rgb(250, 250, 250, 0.5);
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+

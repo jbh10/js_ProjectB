@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="../game/styleGame.css">
+</head>
+<body>
+    <div id="divAnim"></div>
+    <img src="../media/coolguywalking.gif" alt="" id="man" class="mens">
+    <img src="../media/coolguywalking1-removebg-preview.png" alt="" id="man2" class="mens" >
+    <button id ="start">start game</button>
+    <h1 id ="text" type="text"></h1>
+    <h2 id="hint"></h2>
+    <div id="input">
+    <!-- <p id="instructions">type the word</p> -->
+    <input type="text" id="word" oninput="checkFit()">
+    </div>
+    <button id="hintButton">Hint</button>
+    <!-- <img src="../media/alpha-bravo-list_orig.jpg" alt="" id="list"> -->
+    <button id="pauseButton">pause</button>
+    <div id="divScore"><br>
+        <h2 id='user'></h2>
+        Your Score Is: <h2 id="score"></h2> 
+    </div>
+    <!-- <img id="divAnim" src="../media/oak-tree-7507678.png" alt=""> -->
+    <!-- <img src="../media/giphy (1).gif" id="victory"> -->
+    <script type="text/javascript" src="../game/game.js" ,></script>
+</body>
+</html>

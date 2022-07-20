@@ -1,0 +1,18 @@
+.continer{
+    width: 300px;
+    height: 800px;
+    background-color: rgba(167, 167, 231, 0.678);
+    position: relative;
+    left: 50%;
+}
+
+    .road{
+    width: 100%;
+    position: absolute;
+    background-color: pink;
+    opacity: 0.5;
+    text-align: center 
+}
+#road2{
+    margin-top: 400px;
+}

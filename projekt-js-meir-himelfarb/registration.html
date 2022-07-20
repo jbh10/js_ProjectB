@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #flexContiner{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            position: relative;
+            left: 40%;
+            width: 300px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="flexContiner">
+    <div>firstName: <input type="text" id="firstName"></div>
+    <div>lastName: <input type="text" id="lastName"></div>
+    <div> password: <input type="password" id="password"></div>
+    <div><button onclick="newUser()">to register</button></div>
+    </div>
+   
+   
+  
+    
+
+
+
+    <script>
+       function newUser(){
+           let first = document.getElementById('firstName').value
+           let last = document.getElementById('lastName').value
+           let password = document.getElementById('password').value
+
+
+           let users = {
+            firstName:first,
+            lastName:last,
+            password:password,
+            score:null
+           }
+           
+           let user = JSON.parse(localStorage.getItem('users')) || [];
+
+        //    let resolt = user.every(check)
+        //    console.log(resolt);
+           
+        //    if (resolt == true){
+                 user.push(users);
+                 localStorage.setItem("users", JSON.stringify(user))
+                 window.location.href = "login.html";
+           }
+        //    else {
+        //        alert(error)
+        //    }
+
+        //    function check (){
+        //     if(firstName != first && lastName != last){
+        //         return true
+        //         //  user.push(user);
+        //         //  localStorage.setItem("users", JSON.stringify(user))
+        //         }
+        //         else{
+        //            return false
+        //         }
+            
+
+
+
+
+
+        //    for(i = 0;  i < user.length; i++){
+        //        let user1= user[i]
+        //        if(user1.firstName != first && user1.lastName != last){
+        //         user.push(users);
+        //    localStorage.setItem("users", JSON.stringify(user))
+        //        }
+        //    }
+          
+       
+    </script>
+</body>
+</html>

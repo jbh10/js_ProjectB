@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        h1{
+            background-color: rgb(161, 135, 118);
+            padding: 10px;
+            font-size:40px;
+            color: rgba(238, 196, 11, 0.993);
+            border-radius: 2%;
+            text-align: center;
+        }
+        img{
+           display: block;
+            margin: auto;
+        }
+        body{
+             background-color: rgb(231, 238, 131);
+
+}
+
+.tofes{
+font-size:20px; 
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+display: block;
+margin: auto;
+padding: 20px 20px 20px 20px;
+background-color: rgb(161, 135, 118);
+height: 350px;
+width: 500px;
+border-radius: 10%;
+text-align: center;
+
+}
+.p2{
+    border: solid rgb(204, 174, 7);
+    text-align: center;
+    border-radius: 10%;
+    background-color:rgb(204, 174, 7); ;
+}
+.p3{
+    display: block;
+     margin: auto; 
+     width: 100px;
+    height: 40px;
+    margin: auto;
+    border-radius:10%;
+    font-size: 15px;
+    background-color: rgb(212, 212, 177);
+}
+button{
+    display: block;
+     margin: auto; 
+     width: 60px;
+    height: 30px;
+    margin: auto;
+    border-radius:10%;
+    font-size: 15px;
+    background-color: rgb(212, 233, 21);
+}
+</style>
+
+</head>
+<body>
+    <h1>Entrance</h1>
+    <img src="IMAGES/monkey4.jpg" alt="">
+<br>
+<table class="tofes">
+    <tr>
+      <th>
+        User: <input type="text" id="userName" /> <br />
+        <br />
+        Password: <input type="password" id="password" /> <br />
+        <br>
+        <button id="butSaveUser" onclick="login()">Insert</button>
+
+        <br>
+        <div class="p2">
+            <p >Are you not registered?</p>
+            <br>
+            <a href="LoginToThePage.html"><button class="p3" >Sign up now</button></a>
+<br>
+        </div>
+        
+        <br /><br></th>
+      <td>
+          
+    </td>
+    
+    </tr>
+    <br><br><br>
+
+    <script>
+
+        function login(){
+            let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+
+            if (!name || !pwd && !name== "") {
+                return alert("Name or Password are not valid");
+            }
+
+            let users = JSON.parse(localStorage.getItem("users"))
+            const isUserRegisterd = users.find(u => u.firstName === name && u.password === pwd); 
+
+            if (isUserRegisterd) {
+                localStorage.setItem("activeUser", JSON.stringify(isUserRegisterd));
+                window.location.href = "play.html";
+                return;
+            }   
+
+            alert("אינך משתמש רשום. עליך להרשם בכדי להיכנס");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+body{
+    
+    background-color: rgb(199, 236, 161);
+    
+}
+
+#container {
+    width: 400px;
+    height: 600px;
+    position: relative;
+    margin: auto;
+    background-image:url('IMAGES/2.jpg') ;
+    opacity: 50;
+    background-size: cover;
+    border: solid rgb(80, 58, 38);
+}
+
+
+.animate {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+h1{
+    
+  font-family:'Russo One', sans-serif;
+  font-size: 75px;
+  color: #571820fb;
+text-align: center;
+}
+.button1 {
+    width: 150px;
+    height: 70px;
+    font-family: sans-serif;
+    margin: auto;
+    border-radius:10%;
+    background-color: chartreuse;
+    font-size: 19px;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+.button2 {
+    width: 160px;
+    height:160px;
+   
+    margin: auto;
+    border-radius:100%;
+    background-color: rgb(216, 213, 25);
+    background-size: contain;
+    font-size: 19px;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+
+#player {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 170px;
+    bottom: 0px;
+    background-image: url('IMAGES/3.png') ;
+    background-size: contain;
+    margin: auto;
+    border: 1px solid rebeccapurple;
+
+}
+#buttons{
+    text-align: center;
+    border: solid;
+    height: 290px;
+    width: 200px;
+    margin: auto;
+    background-color: #beb19cfb;
+    border-radius: 3%;
+    
+}
+.gameInstructions{
+    height: 100px;
+    width: 100px;
+    background-image: url('IMAGES/9020.jpg') ;
+    border-radius: 100%;
+    background-size: contain;
+    position: relative;
+    left: 10%;
+}
+
+#score {
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    background-color: rgb(243, 245, 245);
+    border-radius: 5%;
+    width: 60%;
+   border: solid 0.5px;
+   
+}
+#left{
+    background-color: rgb(66, 189, 66);
+}
+#right{
+    background-color: rgb(66, 189, 66);
+}
+
+
