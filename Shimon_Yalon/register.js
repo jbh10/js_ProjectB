@@ -27,8 +27,8 @@ function submit() {
         return;
     }
 
-   
-        window.location.pathname = ("capitalGame.html");
+   window.open('capitalGame.html', '_self')
+     //   window.location.pathname = ("capitalGame.html");
     }
 
 
