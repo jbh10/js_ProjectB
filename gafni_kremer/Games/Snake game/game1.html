@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>סנייק</title>
+
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            background-color: #006400;
+        }
+
+        #container {
+            margin-top: 200px;
+            width: 320px;
+        }
+
+        #game-container {
+            position: relative;
+            background-color: white;
+            border: 10px solid #eba1a1;
+            height: 420px;
+            width: 420px;
+            border-radius: 0 0 6px 6px;
+            margin: auto;
+        }
+
+        .mini-nav {
+            width: 420px;
+            background-color: #f0b0b0;
+            border-radius: 6px 6px 0 0;
+            opacity: 0.9;
+            margin: auto;
+        }
+
+        .snake-body {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #003300;
+            border-radius: 4px;
+        }
+
+        .food {
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            background-color: #800000;
+            border-radius: 50px;
+        }
+
+        .menu {
+            text-align: center;
+            color: black;
+            border-radius: 4px 4px 0 0;
+            background-color: #faebeb;
+            /* background-color:  #ffc107;; */
+        }
+
+        .info-container {
+            width: 100%;
+            background-color: rgba(60, 241, 121, 0.19);
+        }
+
+
+        .start-button {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        #game-over {
+            display: none;
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            z-index: 1;
+        }
+
+        .h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 3vw;
+        }
+        .game-container{
+            left: auto;
+        }
+    </style>
+
+
+</head>
+
+<body class="bg-success" dir="rtl">
+
+
+    <div class="col-3 menu p-0 shadow-lg badge-warnings">
+        <br>
+        <div class="h1"><strong>משחק סנייק</strong></div>
+        <div class="info-container">
+            <p>הוראות המשחק:</p>
+            <p>לחץ על מקש "אנטר" להתחיל משחק חדש ועל מקש "רווח" לעצירה והמשך המשחק</p>
+        </div>
+
+        <hr class="m-5">
+
+        <div class="list-unstyled mr-2 m-5 text-right">
+            <li class="h6">רמה: <span id="" class="badge badge-danger">1</span></li>
+            <li class="h6">אורך הסנייק: <span id="snake-length" class="badge badge-danger">5</span></li>
+            <li class="h6">מהירות: <span id="snake-speed" class="badge badge-danger">0px / Sec</span></li>
+
+            <hr>
+
+            <div class="d-flex justify-content-right">
+                <li class="h6 mr-3">High Score: <span id="high-score" class="badge badge-danger">0</span></li>
+                <li class="h6 ml-2">Last Score: <span id="last-score" class="badge badge-danger">0</span></li>
+            </div>
+            <hr>
+
+        </div>
+
+        <div class="d-flex flex-wrap align-content-center justify-content-center m-5"> <br>
+            <button class="btn" type="button" id="start-game" onclick="startGame()">התחל משחק</button>
+            <button class="btn" type="button" id="pause-game">עצור</button> <br><br>
+        </div>
+
+        <ul class="mini-nav justify-content-between nav p-2">
+            <li class="ml-2 text-success">הניקוד שלי : <span id="score" class="badge badge-danger">0</span></li>
+            <li class="mr-2 text-success">רמה : <span id="level" class="badge badge-danger">1</span></li>
+        </ul>
+<br>
+        <div id="game-container">
+            <div id="game-over" class="alert alert-danger"><strong>נפסלת!! המשחק נגמר...</strong></div>
+            <div id="snake-container">
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+            </div>
+            <div id="food-container"></div>
+        </div>
+<br><br><br>
+    </div>
+    <script src="game1.js"></script>
+
+</body>
+
+</html>

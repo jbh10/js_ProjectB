@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regist</title>
+    <style>
+        body{
+background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Ben_Jigsaw_Puzzle_Puzzle_Puzzle.png/250px-Ben_Jigsaw_Puzzle_Puzzle_Puzzle.png');
+
+
+        }
+#regist{
+    width: 240px;
+    height: 380px;
+    border: 1px solid rgb(128, 128, 128);
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    background-color: rgba(216, 215, 215, 0.779);
+    border-radius: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    margin-top: 200px;
+}
+
+ input {
+    display: inline-block;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+   
+}
+::placeholder {
+    text-align: center;
+}
+.submit {
+    width: 200px;
+    height: 40px;
+    background-color: rgb(240, 230, 140);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+button{
+    border-radius: 15px;
+    width: 180px;
+    height: 25px;
+    background-color: bisque;
+}
+a{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div id="regist">
+    <h1>טופס הרשמה</h1>
+    Name: <input type="text" id="userName"  placeholder="שם משתמש" />
+    <br /><br>
+    Email:<input type="email" id="email" placeholder="דואר אלקטרוני"/> <br><br>
+    Password: <input type="password" id="password" placeholder="סיסמא"/> <br><br>
+    <button onclick="saveUser()">Save User</button><br><br>
+    <a href="./login.html">נרשמת ? לחץ כאן</a>
+</div>
+    <script>
+        function saveUser() {
+            let name = document.getElementById('userName').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            
+
+            let user = {
+                userName: name,
+                email: email,
+                password: password
+            }
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            
+            for (let use of users){
+                if (use.userName == name && use.email == email){
+                    return ;
+                }
+            }
+            users.push(user);
+            localStorage.setItem("users",JSON.stringify(users));
+        }
+    </script>
+</body>
+</html>

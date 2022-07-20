@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ראשי משחקים</title>
+    <style>
+        body {
+            background: url("./photos/background2.jpg") no-repeat center;
+            background-size:cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .wrapper3 {
+            display: grid;
+            width: 100%;
+            height: 600px;
+            grid-template-columns: repeat(3, 15vw);
+            grid-template-rows: repeat(3, 15vw);
+            grid-gap: 2vw;
+             justify-content: center;
+            /* align-content: center; */ 
+        }
+
+        .a {
+            background-color: white;
+            border: 3px solid rgb(237, 68, 68);
+        }
+
+        #header {
+            color: white;
+            font-size: 1.5vw;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body dir="rtl" style="text-align: center;">
+    <div id="header">
+        <br>
+        <h1>רשימת המשחקים בחינם</h1>
+        <h3>לכניסה למשחק לחצו עליו</h3>
+    </div>
+    
+    <div class="wrapper3">
+        <div class="a">
+            <a href="../Games/Game X Circle/x&o.html"><img src="./photos/x&o1.jpg" alt="" style="width: 100%; height: 100%;" /></a>
+        </div>
+        <div class="a"><a href="../Games/Snake game/game1.html"> <img src="./photos/sneyk.png" alt="" style="width: 100%; height: 100%;" /></a></div>
+        <div class="a"><a href="../Games/Numbers puzzle game/game2.html"> <img src="./photos/pazel.jpg" alt="" style="width: 100%; height: 100%;" /> </a>
+        </div>
+        <div class="a"><a href="../Games/car game/gameCars.html"><img src="./photos/cars.jpg" alt="" style="width: 100%; height: 100%;" /> </a>
+        </div>
+        <div class="a"><a href="../Games/memory game/gameMemory.html"> <img src="./photos/zicaron.jpg" alt=""
+                    style="width: 100%; height: 100%;" /></a></div>
+        <div class="a"><a href="../Games/soccer game/soccer.html"> <img src="./photos/cadoregel.jpg" alt="" style="width: 100%; height: 100%;" /></a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

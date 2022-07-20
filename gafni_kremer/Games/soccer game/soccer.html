@@ -1,0 +1,326 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק כדורגל</title>
+    <style>
+        #container {
+            width: 800px;
+            height: 400px;
+            position: relative;
+            border: 3px solid #0e0f0d;
+            margin: auto;
+        }
+
+        #container1 {
+            width: 800px;
+            height: 400px;
+        }
+
+        #animateRed {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 173px;
+            left: 1px;
+        }
+
+        #animateBlue {
+            width: 50px;
+            height: 150px;
+            position: absolute;
+            top: 130px;
+            left: 175px;
+        }
+
+        #tuScore {
+            font-size: 40px;
+            text-align: center justify;
+            color: white;
+            -webkit-text-stroke: 1px rgb(243, 24, 24);
+        }
+
+        #tuScore1 {
+            font-size: 40px;
+            text-align: center justify;
+            color: white;
+            -webkit-text-stroke: 1px rgb(11, 5, 5);
+        }
+
+        .spiner1 {
+            animation: rotation 1s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+        body {
+            text-align: center;
+            background-image: url(./photos/grass.jpg);
+        }
+
+        #jump {
+            font-size: x-large;
+            width: 350px;
+            height: 50px;
+            color: white;
+            background-color: #bca525;
+        }
+
+        #start {
+            font-size: x-large;
+            width: 350px;
+            height: 50px;
+            color: white;
+            background-color: #698a47;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        #header {
+            font-weight: bold;
+            color: white;
+            font-size: 2vw;
+            -webkit-text-stroke: 1px rgb(246, 3, 3);
+        }
+        
+    </style>
+</head>
+
+<body dir="rtl">
+
+    <div id="header">
+        <P>הוראות המשחק: <br> יש להעביר את הכדור מצד לצד בלא שייגע בשחקן </P>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>נפסלת!!!</h2>
+            </div>
+            <div class="modal-body">
+                <img src="./photos/gameOver.gif" alt="">
+            </div>
+            <div class="modal-footer">
+                <h3>לא נורא! נסה שוב...</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <img id="container1" src="./photos/futbool.jpg" alt="">
+        <div id="animateRed">
+            <img id="animateRed" class="spiner" src="./photos/ball4.png" alt="">
+        </div>
+        <div id="animateBlue">
+            <img id="animateBlue" src="./photos/sha.png" alt="">
+        </div>
+    </div>
+    <div id="clicks">
+        <br>
+        <p><button onclick="myMove()" id="start">התחל משחק</button></p>
+        <p><button onclick="myGateUp()" id="jump">קפוץ</button></p>
+        <p id="tuScore1"><strong>מספר הנקודות שצברתי: </strong></p>
+        <p id="tuScore"></p>
+    </div>
+
+    <script>
+
+        let posBlue = 140;
+        let intervalBlueuUp;
+        let intervalBlueuDown
+        function myGateUp() {
+            elemBlue.style.top = posBlue + 'px'
+            intervalBlueuUp = setInterval(frameUp, 1);
+        }
+
+        function frameUp() {
+            if (posBlue != 0) {
+                posBlue--;
+                elemBlue.style.top = posBlue + 'px'
+            }
+            else {
+                clearInterval(intervalBlueuUp);
+                intervalBlueuDown = setInterval(framDown, 1);
+            }
+        }
+        function framDown() {
+            if (posBlue != 140) {
+                posBlue++;
+                elemBlue.style.top = posBlue + 'px'
+            }
+            else {
+                clearInterval(intervalBlueuDown);
+            }
+        }
+
+        let score = 0;
+        let id;
+        const elemRed = document.getElementById("animateRed");
+        const elemBlue = document.getElementById("animateBlue");
+        let intervalRed;
+        function myMove() {
+            document.getElementsByClassName("spiner")[0].classList.add("spiner1");
+            let posRed = 0;
+            intervalRed = setInterval(frame, 1);
+            function frame() {
+                if (posRed > 350 && posRed < 390 && posBlue > 100) {
+                   
+                    // score - 10;
+                    // let fn = JSON.parse(localStorage.getItem("player"));
+                    // let users = JSON.parse(localStorage.getItem("users"));
+                    // for (let i = 0; i < users.length; i++) {
+                    //     if (users[i].firstName == fn) {
+                    //         users[i].score -= 10;
+                    //         localStorage.setItem("users", JSON.stringify(users))
+                    //         document.getElementById("tuScore").innerHTML = `${users[i].score}  נקודות`;
+                    //     }
+                    // }
+
+                    clearInterval(intervalRed);
+                    gameOver();
+                }
+                else if (posRed == 750) {
+                    score += 10;
+                    let fn = JSON.parse(localStorage.getItem("player"));
+                    let users = JSON.parse(localStorage.getItem("users"));
+                    for (let i = 0; i < users.length; i++) {
+                        if (users[i].firstName == fn) {
+                            users[i].score += 10;
+                            localStorage.setItem("users", JSON.stringify(users))
+                            document.getElementById("tuScore").innerHTML = `${users[i].score}  נקודות`;
+                        }
+                    }
+                    clearInterval(intervalRed);
+                    elemRed.style.left = "0px";
+                    document.getElementsByClassName("spiner")[0].classList.remove("spiner1");
+                }
+                else {
+                    posRed += 2;
+                    elemRed.style.left = posRed + "px";
+                }
+            }
+        }
+
+        let modal = document.getElementById("myModal");
+        let span = document.getElementsByClassName("close")[0];
+        function gameOver() {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+            elemRed.style.left = "0px"
+            document.getElementsByClassName("spiner")[0].classList.remove("spiner1");
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                elemRed.style.left = "0px";
+                document.getElementsByClassName("spiner")[0].classList.remove("spiner1");
+            }
+        }
+
+        let fn1 = JSON.parse(localStorage.getItem("player"));
+        let users = JSON.parse(localStorage.getItem("users"));
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].firstName == fn1) {
+                localStorage.setItem("users", JSON.stringify(users))
+                document.getElementById("tuScore").innerHTML = `${users[i].score}  נקודות`;
+            }
+        }
+
+    </script>
+</body>

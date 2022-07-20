@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+        .grid {
+            width: auto;
+            height: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 60px auto;
+        }
+
+        .grid img {
+            margin: 1px;
+            transform-style: preserve-3d; 
+            transition: transform 0.5s;
+        }
+
+        .audio {
+            display: none
+        }
+
+        .grid img.flip {
+            transform: rotateY(180deg);
+        }
+
+        .popup {
+            background: red;
+            width: 200px;
+            height: 200px;
+            position: fixed;
+            z-index: 20;
+            top: auto;
+            left: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .data {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+            font-size: 23px;
+        }
+
+        .data span {
+            color: rgb(206, 121, 11);
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="data">
+            <div class="score">הניקוד שלי : <span class="scoreBoard">0</span></div>
+            <div class="click">מספר לחיצות : <span class="clickBoard">0</span></div>
+        </div>
+        <div class="grid">
+            <div class="popup">
+                <button class="playAgain">שחק שוב</button>
+            </div>
+        </div>
+        <div class="audio">
+            <audio controls>
+                <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3" type="audio/mpeg" id="source">
+                </source>
+            </audio>
+        </div>
+    </div>
+
+    <script src="game_memory.js"></script>
+</body>
+
+</html>

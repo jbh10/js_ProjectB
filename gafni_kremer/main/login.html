@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-image: url("./photos/gamepass1.jpg");
+            background-repeat: repeat-y;
+            background-size: 100%;
+            
+          
+        }
+h1{
+    text-align: center;
+}
+        #id_open {
+            text-align: center;
+            border: 3px solid black;
+            height: 50%;
+            background-color: rgb(46, 145, 145);
+
+        }
+
+        .login {
+            margin: 50px auto;
+            width: 320px;
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+    <h1>משחקים בחינם</h1>
+    <div id="id_open" class="login">
+        <h1>כניסת משתמשים</h1>
+        <h3>מלא את פרטיך</h3>
+        שם: <input type="text" id="userName" /> <br /> <br />
+        סיסמא: <input type="password" id="password" /> <br /> <br />
+        <button onclick="login()">כניסה</button> <br /> <br />
+        <a href="Registration.html">להרשמה</a><br> <br>
+    </div>
+    <script>
+        function login() {
+            let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || []
+
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+                if (user.firstName == name && user.password == pwd) {
+                    localStorage.setItem("player", JSON.stringify(user.firstName))
+                    alert(`שלום ${user.firstName}, הכניסה תתבצע מיד...`)
+                    window.location=("mainGame.html");
+                    return;
+                }
+            }
+            alert("שגיאה! הפרטים לא תואמים");
+        }
+    </script>
+</body>
+
+</html>
+<!-- Injection By NetFree -->
+<script>
+    window._shareFileNormalReport = false
+</script>
+<script src="https://netfree.link/injection-script/report-share-file.js" type="text/javascript" async></script>
+<script src="https://netfree.link/injection-script/go-payment.js" type="text/javascript" async></script>
+<script src="https://netfree.link/injection-script/popup-card-init.js" type="text/javascript" async></script>

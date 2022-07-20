@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("./photos/gamepass1.jpg");
+            background-repeat: repeat-y;
+            background-size: 100%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #id_rishum {
+            text-align: center;
+            border: 3px solid black;
+            height: 50%;
+            background-color: rgb(172, 172, 172);
+
+        }
+
+        .login {
+            margin: 50px auto;
+            width: 320px;
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+    <h1>משחקים בחינם</h1>
+    <div id="id_rishum" class="login">
+        <!-- <form action=""> -->
+            <h1>הרשמה</h1>
+            <h3>מלא את הפרטים הבאים</h3>
+            <br>
+            שם פרטי: <input type="text" id="userName" >
+            <br> <br>
+            שם משפחה: <input type="text" id="lastName" >
+            <br> <br>
+            סיסמא: <input type="password" id="password">
+            <br> <br>
+            <button onclick="saveUser()">שמור פרטים</button>
+            <br> <br>
+            <a href="login.html">כניסה</a><br> <br>
+        <!-- </form> -->
+    </div>
+    <script>
+
+        function saveUser() {
+
+ let first = document.getElementById("userName").value;
+            let last = document.getElementById("lastName").value;
+            let password = document.getElementById("password").value;
+
+            if (first && last && password) {
+                let user = {
+                    firstName: first,
+                    lastName: last,
+                    password: password,
+                    score: 0
+                }
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                //    אופציה נוספת
+                // if( ! users){
+                //     users = [];
+                // }
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+
+                window.location = "login.html";
+
+            } else {
+                alert("\n שים לב!\nחובה למלאות את כל הפרטים!!");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
