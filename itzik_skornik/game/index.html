@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
+
+<body>
+    <section id="auth">
+        <div id="login-form">
+            <h1>Login to the game</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="margin">
+                <br>
+                <br>
+                <br>  
+                <br>
+                <br>
+              <h2>Fill in your details</h2>
+            <input id="userNameLogIn" type="text" placeholder="Enter your username">
+            <br>
+            <br>
+            <input id="passwordLogIn" type="password" placeholder="Enter your password">
+            <br>
+            <br>
+            <button id="login-btn">Login</button>
+            <br> 
+            <br>
+            <button onclick="toggleForms()">Don't have an account?</button>
+        </div>
+        </div>
+        
+        <br>
+        <br>
+            
+        <h1 id="test" style="display: none">Create an Account</h1>
+        <div class="margin1" id="sign-up-form" style="display: none;">
+            <h2>Fill in your details</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <input id="userName" type="text" placeholder="Pick a username">
+            <br>
+            <br>
+        <input id="firstName" type="text" placeholder="Enter your First Name">
+        <br>
+        <br>
+            <input id="lastName" type="text" placeholder="Enter your Last Name">
+            <br>
+            <br>
+            <input id="password" type="password" placeholder="Choose a strong password">
+            <br>
+            <br>
+            <button onclick="addUser()">add user</button>
+            <br>
+            <br>
+            <button onclick="toggleForms()">Already have an account?</button>
+            <br>
+            <br>
+        </div>
+    
+        </div>
+    </section>
+    <section id="game" style="display: none;">
+        <div id="message-box" style="display: none;">
+            
+            <p></p>
+        </div>
+        <button id="number" onclick="reset()">new game</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>Welcome to the game page, <span id="userFName"></span></h1>
+        
+        <div class="start-btn-cont"> <button id="start-game">START GAME</button></div>
+
+        <div id="card-cont">
+
+        </div>
+
+        <div id="pannel">
+            <div id="board">
+                <div class="board-elem" id="timer-cont">
+                    <h2>TIMER:</h2>
+                    <p id="timer">10</p>
+                </div>
+                <div class="board-elem" id="score-cont">
+                    <h2>SCORE:</h2>
+                    <p id="score">0</p>
+                </div>
+                <div class="board-elem" id="level-cont">
+                    <h2>ROUND:</h2>
+                    <p id="round">1</p>
+                </div>
+                <div class="board-elem" id="level-cont">
+                    <h2>LEVEL:</h2>
+                    <p id="level">1</p>
+                </div>
+            </div>
+            <div id="riddle-cont">
+                <p id="riddle"></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

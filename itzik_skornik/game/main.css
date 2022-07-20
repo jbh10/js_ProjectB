@@ -1,0 +1,171 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1{
+    color: white;
+   margin-top: 10%;
+  text-align: center;
+  font-size: 100px;
+}
+#game {
+    background-color: black;
+    height: 100vh;
+    padding-top: 40px;
+  
+}
+button{
+    position: relative;
+    top: 20%;
+    height: 5%;
+    width: 50%;
+    margin:  auto;
+  
+}
+input{
+    position: relative;
+    top: 20%;
+    height: 5%;
+    width: 50%;
+    margin:  auto;
+}
+body {
+background-color: rgb(8, 8, 8);
+text-align: center;
+margin: auto;
+}
+#message-box {
+    width: 100%;
+    height:100vh;
+    position: fixed;
+    z-index:10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message-box > p {
+    text-align: center;
+    color: rgb(255, 25, 25);
+    opacity: 1;
+    font-weight: bold;
+    font-size: 100px;
+    animation: blink linear infinite 1s;
+}
+
+#card-cont {
+    display: grid;
+    background-color:rgb(70, 70, 70);
+    width: 80%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin: 0 auto;
+    gap: 2vw;
+    height: 40vh;
+}
+
+.card {
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+#pannel {
+    display: flex;
+    color: white;
+    padding: 30px;
+}
+
+#board {
+    width: 30%;
+}
+
+#riddle-cont {
+color: rgb(202, 199, 21);
+text-align: center;
+font-size: 50px;
+}
+
+.board-elem > p{
+font-size: 50px;
+}
+
+
+#start-game {
+    font-size: 50px;
+    background-color: green;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 20px 50px;
+display: block;
+max-width: max-content;
+    margin: 0 auto;
+}
+
+#start-game:hover {
+    background-color: rgb(58, 253, 58);
+    color: black;
+ 
+}
+
+.start-btn-cont {
+    left: 0;
+    right: 0;
+   
+    position: fixed;
+}
+.margin1{
+    width: 500px;
+    height: 500px;
+  margin-top: 25%;
+   margin: auto;
+   border-style: solid ;
+   border-color: firebrick;
+  
+}
+#margin{
+
+    width: 500px;
+    height: 500px;
+  margin-top: 25%;
+   margin: auto;
+   border-style: solid ;
+   border-color: firebrick;
+
+  
+}
+#number{
+    font-size: 50px;
+    background-color: green;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 20px 50px;
+display: block;
+max-width: max-content;
+    margin: 0 auto;
+    height: fit-content;
+}
+#number:hover{
+    background-color: rgb(58, 253, 58);
+    color: black;
+}
+@keyframes blink {
+    0% {
+           opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+h2{
+    color: floralwhite;
+    font-size: 50px;
+
+}
