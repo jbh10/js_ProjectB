@@ -28,7 +28,7 @@ function submit() {
     }
 
    
-        window.location.pathname = ("capitalGame.html");
+        window.location.pathname = ("../capitalGame.html");
     }
 
 
