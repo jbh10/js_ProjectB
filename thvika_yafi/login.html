@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: coral
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            background-color: brown;
+        }
+
+        #userName,
+        #password,
+        #lastName {
+            display: flex;
+            justify-items: center;
+            width: 300px;
+            height: 20px;
+        }
+
+        #cunteiner {
+            margin: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cunteiner">
+        <h1>Login</h1>
+        שם פרטי: <input type="text" id="userName" /> <br />
+        שם משפחה: <input type="text" id="lastName"><br />
+        סיסמה: <input type="password" id="password" /> <br />
+        <button onclick="login()">כניסה למשחק</button>
+        <button onclick="saveUser()">להרשמה</button>
+    </div>
+    <script>
+
+        function login() {
+            let name = document.getElementById('userName').value;
+            let lastName = document.getElementById('lastName').value;
+            let pwd = document.getElementById('password').value;
+            let tastLoceishen = 0;
+            let users = JSON.parse(localStorage.getItem("users")) || []
+
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+
+                if (user.firstName == name && user.lastName == lastName && user.password == pwd) {
+                    tastLoceishen = i;
+                    localStorage.setItem("tastLoceishen", i);
+                    alert("Login");
+                    window.open("home.html", "_self")
+                    return;
+                }
+            }
+            alert("אינך רשום למשחק \nהנך מועבר לדף ההרשמה !");
+            window.open("storage.html", "_self")
+
+        }
+        function saveUser() {
+
+let user = {
+    firstName: document.getElementById('userName').value,
+    lastName: document.getElementById('lastName').value,
+    password: document.getElementById('password').value,
+    score: 0
+}
+console.log(user.firstName);
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+
+let userExists = users.some((u)=> { return u.firstName==user.firstName})
+if(userExists){
+    alert("שם משתמש תפוס")
+    window.open("storage.html","_self")
+}
+    
+else{
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    window.location.assign("login.html")
+}           
+}
+    </script>
+</body>
+
+</html>

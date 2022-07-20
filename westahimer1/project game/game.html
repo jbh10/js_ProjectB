@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+   
+
+
+<body>
+
+    <p id="pTimer"></p>
+    <div id="screen"><img src="astronomy-1867616__340.jpg" width="100%" height="100%">
+        <div id="boom1"><img src="alien-4135788__340.png" width="100%" height="100%"></div>
+        <div id="boom2"><img src="alien-4135788__340.png" width="100%" height="100%"></div>
+        <div id="men"><img src="till.png" width="100%" height="100%"></div>
+        <div id="ball"><img src="f723ad53-d56a-439c-84ee-25379fd753ec.jpg" width="100%" height="100%"></div>
+    </div>
+    <div id="point">
+        <P id="p1"> 0:הניקוד שלך הוא</P>
+        <!-- <P id="p2"> :שלב 1</P> -->
+    </div>
+    <div id="button">
+        <button id="left"  onmouseover="funcLeft()"><===</button>
+        <button id="right" onmouseover="funcRight()">===></button>   
+            
+    </div>
+
+    <p id="lose"></p>
+    <p id="over"></p>
+    <audio id="audioBall">
+        <source src="button-33a.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audioBoom">
+        <source src="button-4.mp3" type="audio/mpeg">
+    </audio>
+ <button id="start" onclick="game3()">new game</button>   
+    <script src="game.js">
+
+    </script>
+</body>
+
+</html>

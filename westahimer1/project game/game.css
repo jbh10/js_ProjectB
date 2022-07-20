@@ -1,0 +1,115 @@
+body {
+    background-color: black;
+}
+
+#screen {
+   
+    width: 1000px;
+    height: 700px;
+    position: absolute;
+    left: 400px;
+    bottom:  100px;
+
+}
+
+#point {
+    text-align: center;
+    font-size:x-large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: black;
+    color: blue;
+    width: 320px;
+    height: 90px;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+}
+
+#boom1 {
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: aqua;
+
+}
+#boom2 {
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    color: aqua;
+
+}
+
+#men {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    z-index: 1;
+    right: 478px;
+    bottom: 0px;
+    color: aqua;
+}
+
+#ball {
+    width: 5px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid black;
+    border-radius: 25px;
+    visibility: visible;
+}
+
+#button {
+    
+    position: absolute;
+    bottom: 25px;
+    left: 650px;
+}
+
+button {
+    background-color: aqua;
+    width: 250px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#start{
+    background-color: aqua;
+    width: 250px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 25px;
+    position: absolute;
+    top: 250px;
+    left: 0px;
+    display:none;
+}
+#pTimer{
+    text-align: center;
+    font-size:xx-large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blue;
+    position: absolute;
+    top:0 px;
+    left: 45%;
+}
+#lose{
+    color: blue;
+    font-size: xx-large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#over{
+    color: blue;
+    font-size: xx-large;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

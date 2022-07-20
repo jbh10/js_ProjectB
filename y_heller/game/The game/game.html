@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <div id="Instructions">
+        <p>הוראות משחק <br>
+            start לתחילת המשחק לחץ על <br> במהלך המשחק יופיע מילות קוד, עליך לכתוב אותם לפני שהדמות מגיע למכשול<br>
+            במהלך המשחק תצבור נקודות ובכל עשר נקודות רמת הקושי תעלה <br> <br>
+            !בהצלחה</p>
+        <button class="sGame" onclick=Instructions()>בואו נשחק </button>
+    </div>
+    <img id="start" src="start.png" alt="bootom" onclick=start()>
+    <input type="text" id="input">
+    <!-- <button id="start" onclick=start()>start</button> -->
+    <!-- <button style="pointer-events: none;" id="chek" onclick="goUp()">jump</button> -->
+
+    <div>
+        <h1 id="Sentence"></h1>
+    </div>
+    <div>
+        <div id="scor">score:</div>
+    </div>
+
+    <div id="container">
+        <img id="aManWalks" src="stick-man-walk-unscreen.gif" alt="A man walks">
+        <img id="aManStop" src="איש_עומד_1.png">
+        <img id="obstacle" src="obstacle.png">
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

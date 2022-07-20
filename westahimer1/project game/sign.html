@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+            background-image: url(astronomy-1867616__340.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: bisque;
+            text-align: center;
+        }
+
+        div {
+            width: 350px;
+            text-align: center;
+            color: bisque;
+            border: solid 2px;
+            position: absolute;
+            top: 50px;
+            right: 40%;
+        }
+
+        #userName,
+        #lastName,
+        #password {
+            margin: 70px auto;
+        }
+
+        #log {
+            margin-top: 100px;
+            margin-bottom: 50px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Registration</h1>
+        Name: <input type="text" id="userName" />
+        <br />
+        Last Name: <input type="text" id="lastName" />
+        <br />
+        Password: <input type="password" id="password" /></br>
+        <button onclick="saveUser()">Save User</button></br>
+
+        <a href="login.html"><button id="log">login</button></a>
+
+    </div>
+
+    <script>
+        function saveUser() {
+            let first = document.getElementById('userName').value;
+            let last = document.getElementById('lastName').value;
+            let password = document.getElementById('password').value;
+
+            if (first == "" || last == "" || password == "") {
+                alert("There are empty fields")
+                return
+            }
+
+            let user = {
+                firstName: first,
+                lastName: last,
+                password: password,
+                // point: 0
+
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            for (let i = 0; i < users.length; i++) {
+                if (user.firstName == users[i].firstName && user.password == users[i].password) {
+
+                    alert("eroor")
+                    return
+                }
+            }
+
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("You have successfully registered.To play, click Login")
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

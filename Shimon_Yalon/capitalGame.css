@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(241, 241, 241);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Add padding to containers */
+/* .position{
+    display: inline-block;   
+    margin-top: 3px;
+    
+} */
+.picture{
+    margin-right: 30%;
+    margin-left: auto;
+     margin-top: 75px;
+    display: inline-block; 
+    position: sticky;
+    top: 4%;
+}
+.container {
+    padding: 350px;
+    /* background-image: url("https://d2zofuu73zurgl.cloudfront.net/levy-auctions/cloned-images/17698/001/a_ignore_q_80_w_400_h_400_c_fit_001.jpg"); */
+    display: inline-block;
+    /* height: 200px; */
+   
+}
+
+.reka{
+    /* background-color: rgb(64, 16, 132); */
+    background-image: url("https://d2zofuu73zurgl.cloudfront.net/levy-auctions/cloned-images/17698/001/a_ignore_q_80_w_400_h_400_c_fit_001.jpg");
+    /* height:800px; */
+}
+.user-display {
+    margin:1px 50px 3px 50px;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    outline: none;
+    color: #666;
+    background-color: rgb(153, 255, 190);
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    border: 3px solid #39a9ee;
+    margin-bottom: 5px;
+    position: sticky;
+    top: 2%;
+    z-index: 1;
+  }
+ h2{
+    text-align: center;
+    color: rgb(255, 255, 153);
+    border: 1.5px solid rgb(167, 255, 153);
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgb(49, 150, 201);
+    margin-right: 5px; 
+    }
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label {
+    border: 5px outset lightblue;
+    background-color: lightblue;
+    cursor: pointer;
+    display: block;
+    height: 80px;
+    width: 200px;
+    text-align: center;
+    line-height: 40px;
+}
+
+input[type="radio"]:checked+label {
+    border: 5px solid blue;
+    background-color: dodgerblue;
+    border-radius: 10px;
+
+}
+
+header{
+    background-color: dimgray;
+}
+
+#optionsAnswer {
+    display: inline-block;
+    position: absolute;
+    left: 100px;
+}
+label {
+    border: outset;
+}
+input#haavoda[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://havoda.org.il/wp-content/uploads/2019/01/logo-havoda.png");
+    
+}
+
+input#liKud[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://static1.s123-cdn-static-a.com/uploads/2055179/800_6044007e6aa57.jpg");
+    
+}  
+
+input#shas[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://shas.org.il/wp-content/uploads/2021/05/%D7%9C%D7%95%D7%92%D7%95.png");
+   
+}
+
+input#ziyonut[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://upload.wikimedia.org/wikipedia/he/thumb/c/c2/%D7%9C%D7%95%D7%92%D7%95_%D7%94%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA_%D7%94%D7%93%D7%AA%D7%99%D7%AA_2022.svg/1200px-%D7%9C%D7%95%D7%92%D7%95_%D7%94%D7%A6%D7%99%D7%95%D7%A0%D7%95%D7%AA_%D7%94%D7%93%D7%AA%D7%99%D7%AA_2022.svg.png");
+    
+}
+
+input#merez[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Meretz_Logo.svg/langhe-220px-Meretz_Logo.svg.png");
+   
+}
+
+input#raham[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://upload.wikimedia.org/wikipedia/he/thumb/0/08/%D7%94%D7%A8%D7%A9%D7%99%D7%9E%D7%94_%D7%94%D7%A2%D7%A8%D7%91%D7%99%D7%AA_%D7%94%D7%9E%D7%90%D7%95%D7%97%D7%93%D7%AA_%D7%9C%D7%95%D7%92%D7%95_2021.svg/1200px-%D7%94%D7%A8%D7%A9%D7%99%D7%9E%D7%94_%D7%94%D7%A2%D7%A8%D7%91%D7%99%D7%AA_%D7%94%D7%9E%D7%90%D7%95%D7%97%D7%93%D7%AA_%D7%9C%D7%95%D7%92%D7%95_2021.svg.png");
+
+}
+
+input#yesh_atid[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://www.dotweb.co.il/wp-content/uploads/2015/09/yeshatid-e1485204769942.jpg");
+    
+}
+
+input#hamshutefeth[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://bechirot22.bechirot.gov.il/election/Candidates/PublishingImages/List71.png");
+   
+
+}
+
+input#Yahadut_HaTora[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://upload.wikimedia.org/wikipedia/he/thumb/9/97/%D7%99%D7%94%D7%93%D7%95%D7%AA_%D7%94%D7%AA%D7%95%D7%A8%D7%94_%D7%9C%D7%95%D7%92%D7%95_2019.svg/1200px-%D7%99%D7%94%D7%93%D7%95%D7%AA_%D7%94%D7%AA%D7%95%D7%A8%D7%94_%D7%9C%D7%95%D7%92%D7%95_2019.svg.png");
+    
+}
+
+input#yaminah[type="radio"]+label:hover {
+    border: 5px solid rgb(0, 21, 255);
+    content: url("https://hamechadesh.b-cdn.net/wp-content/uploads/elementor/thumbs/20200526_155923-oq370iw6h8hik9czsjau2n3b1oex6nmj53g8yaipug.jpg");
+
+}
+h1{
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: 300%;
+    background-color: darkcyan;
+    margin-bottom: 5px;
+}
+#MK{
+    border-radius: 50px;
+    position: sticky;
+    top: 2%;
+    z-index: 0;
+}
+#optionsAnswer{
+    height: 70px;
+}

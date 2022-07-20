@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+    margin: 300px;
+    background-image: url(https://as1.ftcdn.net/v2/jpg/03/34/02/20/1000_F_334022060_aSANxxNQW1loOwi6rYvnd4wApmfZHsEh.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 940px;
+    overflow: hidden;
+}
+h1{
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 45px;
+}
+input{
+    margin: 20px;
+    width: 350px;
+    height: 50px;
+    font-family: 'Varela Round', sans-serif;
+    font-size:larger ;
+    border-radius: 10px 10px;
+}
+input:hover{
+    background-color:aqua;
+}
+
+a{
+    font-size: 50px;
+    background-color: white  ;
+    font-family: 'Varela Round', sans-serif;
+}
+#link{
+    margin: 50px;
+    display: none;
+
+}
+#link1{
+    margin: 50px;
+}
+button{
+    background-color: aqua;
+    width: 150px;
+    height:50px;
+    font-size: 35px ;
+    font-family: 'Fredoka', sans-serif;
+}

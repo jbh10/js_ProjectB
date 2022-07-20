@@ -1,0 +1,145 @@
+body {
+    /* background-color: #F9EFE5; */
+    background-image: url("https://i.pinimg.com/564x/0a/e5/6b/0ae56bda67d9fd56bd83088777d23ed4.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 940px;
+    overflow: hidden;
+}
+
+#Instructions {
+    position: absolute;
+    right: 27%;
+    left: 27%;
+    top: 15%;
+    width: 45%;
+    height: 35%;
+    /* background-color: aquamarine; */
+    text-align: center;
+    /* border: #bcf359 2px double; */
+    font-family: 'Fredoka', sans-serif;
+    font-size: 30px;
+    display: block;
+}
+.sGame{
+    width: 150px;
+    height: 80px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 30px;
+    background-color: #62b05c;
+    border: none;
+    border-radius: 10px 10px;
+
+}
+.sGame:hover{
+    background-color: #72c9e4;
+}
+
+#aManWalks {
+    position: absolute;
+    left: 35px;
+    bottom: 70px;
+    z-index: 1;
+    width: 15%;
+    display: none;
+    /* border: #850909 1px solid; */
+}
+
+#aManStop {
+    position: absolute;
+    left: 10%;
+    bottom:70px;
+    z-index: 2;
+    width: 15%;
+    display: block;
+
+}
+
+#input {
+    position: absolute;
+    top: 30px;
+    right: 45%;
+    width: 280px;
+    height: 40px;
+    font-size: larger;
+}
+
+#chek {
+    position: absolute;
+    top: 30px;
+    right: 35%;
+    width: 180px;
+    height: 44px;
+    font-size: larger;
+    z-index: 3;
+}
+
+
+#start {
+    position: absolute;
+    bottom: 200px;
+    left: 1%;
+    width: 230px;
+    height: 250px;
+    font-size: larger;
+    z-index: 1;
+    border-radius: 10px 10px;
+}
+
+#Sentence {
+    position: absolute;
+    right: 48%;
+    top: 20%;
+    font-size: 60px;
+    background-color: #62b05c;
+    width: auto;
+    border: #87b1d9 2px solid;
+    border-radius: 10px 10px;
+}
+
+#container {
+    position: relative;
+    width: 99%;
+    height: 280px;
+    top: 500px;
+    z-index: 0;
+    /* background-color: #fcfefc; */
+    /* opacity: 50; */
+    /* border: #328DFA 3px double; */
+
+}
+
+#obstacle {
+
+    width: 10%;
+    /* height: 70px; */
+    position: absolute;
+    bottom: 2px;
+    right: 50px;
+    /* background-color: #F9EFE5; */
+    opacity: 100;
+    transition: opacity 1s;
+    z-index: 2;
+
+}
+
+#scor {
+    position: absolute;
+    bottom: 500px;
+    right: 100px;
+    width: auto;
+    border: #328DFA 3px double;
+    font-size: 40px;
+    /* font-family: 'Rubik Moonrocks', cursive; */
+    background-color: #62b05c;
+    ;
+    z-index: 4;
+    border-radius: 10px 10px;
+
+}
+
+#input {
+    height: 50px;
+    top: 40%;
+    display: none;
+    border-radius: 10px 10px;
+}

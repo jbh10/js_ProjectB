@@ -1,0 +1,51 @@
+.step1 {
+    display: inline-block;
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+
+.step2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.step1.flipped .step2 {
+    transform: rotateY(180deg);
+}
+
+.step3,
+.img1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* .step3 h2 {
+    color: white;
+    font-size: 16pt;
+    font-weight: 500;
+    padding: 10px;
+} */
+
+.step3 {
+    background-color: #18453b;
+}
+
+.img1 {
+    background-color: #008183;
+    transform: rotateY(180deg);
+}

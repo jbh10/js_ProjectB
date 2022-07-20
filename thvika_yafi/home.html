@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק</title>
+    <style>
+        * {
+            vertical-align: top;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            border: solid;
+            margin: 10px;
+
+        }
+
+        body {
+            background-color: darkgoldenrod;
+        }
+
+        #button {
+            border: solid;
+            background-color: red;
+
+        }
+
+        .a {
+            height: 25px;
+            background-color: rgb(131, 131, 194);
+            margin: 15px;
+            color: black;
+            font-size: 25px;
+        }
+
+        #score,
+        #header,
+        #point {
+            color: brown;
+            font-size: 30px;
+        }
+
+        #cars {
+            margin: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- <audio id="audio" src="01 ומחכמתך.mp3" loop="loop"  autoplay="autoplay"></audio> -->
+
+    <div id="cars"> </div>
+
+    <a class="a" href="login.html">להתחברות</a></li>
+    <a class="a" href="storage.html">להרשמה</a></li>
+
+    <p id="score"></p>
+
+    <div id="point"></div>
+
+    <header id="header"></header>
+
+
+
+    <!-- <div><button id="button" onclick="countdown(0, 59)">בדיקה</button></div> -->
+    <script type="text/javascript">
+        // //  window.onload=function(){
+        // //     document.getElementById("audio").play();
+        // }
+        let cars = [
+            { pic: "/pic/blue.jpg", name: "כחולה", color: "blue" },
+            { pic: "/pic/red.jpg", name: "אדומה", color: "red" },
+            { pic: "/pic/black.jpg", name: "שחורה", color: "black" },
+            { pic: "/pic/gold.jpg", name: "זהב", color: "gold" },
+        ];
+        let array = [-1, -1, -1, -1, -1, -1, -1, -1];
+        RamdonCars();
+        CreateCars();
+        let point = 0;
+        let maxPoint = 0;
+
+        let count = 0;
+
+        let car1;
+        let car2;
+        let number = 0;
+        var users = JSON.parse(localStorage.getItem("users"))
+        let tastLoceishen = JSON.parse(localStorage.getItem("tastLoceishen"))
+        maxPoint = users[tastLoceishen].score
+        Start();
+        function Start() {
+            let name = users[tastLoceishen].firstName;
+            let name1 = users[tastLoceishen].lastName;
+            let score = users[tastLoceishen].score
+
+            document.getElementById("header").innerHTML = "שלום: " + " "
+                + name + " " + name1;
+            document.getElementById("score").innerHTML = "השיא שלך:"
+                + " " + score;
+        }
+        function RamdonCars() {
+            for (let i = 0; i < cars.length; i++) {
+                for (let j = 0; j < 2; j++) {
+                    let number;
+                    do {
+                        number = Math.round(Math.random() * 10) % 8;
+                    } while (array[number] != -1);
+                    array[number] = i;
+                }
+            }
+        }
+        function CreateCars() {
+            for (let i = 0; i < array.length; i++) {
+                if (i % 4 == 0) {
+                    // document.getElementById("cars").appendChild(document.createElement("br"));
+                }
+                let img = document.createElement("img");
+
+                img.setAttribute("data-img", cars[array[i]].pic);
+                img.setAttribute("data-name", cars[array[i]].name);
+                img.setAttribute("data-color", cars[array[i]].color);
+                img.id = i
+                img.src = "/pic/aaa.jpg"
+                img.onclick = ClickImg;
+
+                document.getElementById("cars").appendChild(img);
+            }
+        }
+        function CheckTrue() {
+
+            if (car1.src == car2.src && car1.id != car2.id) {
+                new Audio("Weapon Broad Sword Hit Stone 01.wav").play();
+                // alert("הצלחה");
+                car1.style.visibility = "hidden";
+                car2.style.visibility = "hidden";
+                point += 20
+                number++
+            }
+            else {
+                new Audio("Bleep-SoundBible.com-1927126940.mp3").play();
+                car1.src = "/pic/aaa.jpg";
+                car2.src = "/pic/aaa.jpg";
+                car1.style.borderColor = "black";
+                car2.style.borderColor = "black";
+
+                // let name1 = car1.getAttribute("data-name");
+                // let name2 = car2.getAttribute("data-name");
+                // alert(`טעות  ${name1} , ${name2}`);
+                point -= 2;
+            }
+            document.getElementById("point").innerHTML = "הניקוד שלך :" + " " + point;
+            console.log(maxPoint);
+
+            if (number == 4) {
+                if (point > maxPoint) {
+                    console.log('ALUF aholam');
+                    users[tastLoceishen].score = point
+                    maxPoint = point
+                    localStorage.setItem("users", JSON.stringify(users));
+                    // users.score = maxPoint        
+                    document.getElementById("point").innerHTML += "  \nשברת שיא חדש" + " " + point;
+                }
+            }
+        }
+
+        function ClickImg() {
+
+            let src = event.target.getAttribute("data-img");
+            console.log(src);
+            event.target.src = src;
+            event.target.style.borderColor = event.target.getAttribute("data-color");
+            if (count % 2 == 0 && count != 0) {
+                // CheckTrue();
+            }
+            if (count % 2 == 0) {
+                car1 = event.target;
+            }
+            else {
+                car2 = event.target;
+                setTimeout(CheckTrue, 1000);
+
+            }
+            count++
+        }
+
+    </script>
+
+</body>
+
+</html>

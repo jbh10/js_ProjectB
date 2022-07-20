@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    שם:<input id="name" type="text"><br><br>
+    סיסמה:<input id="pas" type="text"><br><br>
+    <button onclick="testuser()">לחץ כאן לכניסה למשחק</button>
+    <script>
+
+        function testuser() {
+            let name = document.getElementById("name").value;
+            let pas = document.getElementById("pas").value
+
+            let users = JSON.parse(localStorage.getItem("users"))
+            // console.log(users);
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i]
+                console.log(name);
+                if (user.firstName == name) {
+                    alert("welcome")
+                    window.location.assign("proyekt.html")          
+                      }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
