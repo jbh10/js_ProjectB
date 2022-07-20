@@ -11,6 +11,9 @@ function logIn() {
                 currentName: name,
             }
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            
+                console.log("okkkkk");
+
             window.open("../insructions/instruction.html")
         }
     }
