@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="refresh" content="35;url=https://jbh.itziks.com/js_project">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yitzchak</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        <span id="typeWriter"></span>
+        <span id="typeWriterEffect" style="margin-left:-10px;"></span>
+    </h1>
+    <br>
+    <h4 style="text-align: center;">לדילוג הקישו על המסך</h4>
+    <script>
+        window.addEventListener('click', (() => window.location.replace('https://jbh.itziks.com/js_project')))
+
+        //הקוד דלהלן הועתק
+        var useMultipleLines = true;
+        var text = "This is a single line";
+        var texts = ["Hi, This is the project created by Yitzhak Shechter!", "For now, the project contains only one game.", "But don't worry! More games are on the way...", "Now, you'll be taken to the project!!!"];
+        var doLoop = true;
+        var doReverse = true;
+        var removeDelay = 10;
+        var removeSpeed = 50;
+        var typeSpeed = 100;
+        var blinkEffect = "|";
+        var blinkDelay = 350;
+
+        var canWrite = true;
+        var reverse = false;
+        var rDelay = removeDelay;
+        var singleLineNormalInterval = null;
+        var singleLineReverseInterval = null;
+
+        function TypeWriterSettings() {
+            if (!useMultipleLines && canWrite) {
+                if (!reverse) {
+                    singleLineNormalInterval = setInterval(SingleLineNormal, typeSpeed);
+                } else if (reverse && doReverse) {
+                    singleLineReverseInterval = setInterval(SingleLineReverse, removeSpeed);
+                }
+            } else if (useMultipleLines && canWrite) {
+                if (!reverse) {
+                    multipleLineNormalInterval = setInterval(multipleLineNormal, typeSpeed);
+                } else if (reverse) {
+                    multipleLineReverseInterval = setInterval(multipleLineReverse, removeSpeed);
+                }
+            }
+        }
+        TypeWriterSettings();
+
+        function displayText(text) {
+            var elem = document.getElementById("typeWriter");
+            elem.innerHTML = text;
+        }
+
+
+        var singleLineIndex = 0;
+        function SingleLineNormal() {
+            if (singleLineIndex < text.length && singleLineIndex >= 0) {
+                singleLineIndex++;
+                displayText(text.substr(0, singleLineIndex));
+            } else {
+                if (rDelay == 0) {
+                    rDelay = removeDelay;
+                    reverse = true;
+                    TypeWriterSettings();
+                    window.clearInterval(singleLineNormalInterval);
+                } else {
+                    rDelay--;
+                }
+            }
+        }
+
+        function SingleLineReverse() {
+            if (singleLineIndex <= text.length && singleLineIndex >= 0) {
+                singleLineIndex--;
+                displayText(text.substr(0, singleLineIndex));
+            } else {
+                if (doLoop) {
+                    if (rDelay == 0) {
+                        rDelay = removeDelay;
+                        reverse = false;
+                        TypeWriterSettings();
+                        singleLineIndex = 0;
+                        window.clearInterval(singleLineReverseInterval);
+                    } else {
+                        rDelay--;
+                    }
+                } else {
+                    canWrite = false;
+                    window.clearInterval(singleLineReverseInterval);
+                }
+            }
+        }
+
+        var multipleLineIndex = 0;
+        var multipleLines = 0;
+        function multipleLineNormal() {
+            if (texts.length > 0 && multipleLines < texts.length) {
+                if (texts[multipleLines].length > 0) {
+                    if (multipleLineIndex <= texts[multipleLines].length && multipleLineIndex >= 0 && multipleLines < texts.length) {
+                        multipleLineIndex++;
+                        displayText(texts[multipleLines].substr(0, multipleLineIndex));
+                    } else {
+                        if (multipleLines < texts.length) {
+                            if (rDelay == 0) {
+                                rDelay = removeDelay;
+                                reverse = true;
+                                TypeWriterSettings();
+                                window.clearInterval(multipleLineNormalInterval);
+                            } else {
+                                rDelay--;
+                            }
+                        } else {
+                            reverse = true;
+                            TypeWriterSettings();
+                            window.clearInterval(multipleLineNormalInterval);
+                        }
+                        multipleLineIndex = texts[multipleLines].length;
+                    }
+                }
+            }
+        }
+
+        function multipleLineReverse() {
+            if (texts.length > 0 && texts[multipleLines].length >= 0) {
+                if (multipleLines < texts.length - 1 && multipleLineIndex <= texts[multipleLines].length && multipleLineIndex >= 0) {
+                    multipleLineIndex--;
+                    displayText(texts[multipleLines].substr(0, multipleLineIndex));
+                } else {
+                    if (doReverse && texts[multipleLines].length > 0 && multipleLines >= texts.length - 1 && multipleLineIndex > 0) {
+                        multipleLineIndex--;
+                        displayText(texts[multipleLines].substr(0, multipleLineIndex));
+                    } else {
+                        if (multipleLines < texts.length - 1) {
+                            if (rDelay == 0) {
+                                rDelay = removeDelay;
+                                reverse = false;
+                                multipleLineIndex = 0;
+                                multipleLines++;
+                                TypeWriterSettings();
+                                window.clearInterval(multipleLineReverseInterval);
+                            } else {
+                                rDelay--;
+                            }
+                        } else {
+                            if (multipleLines >= texts.length - 1) {
+                                if (doLoop) {
+                                    if (rDelay >= 0) {
+                                        rDelay = removeDelay;
+                                        reverse = false;
+                                        multipleLineIndex = 0;
+                                        multipleLines = 0;
+                                    } else {
+                                        rDelay--;
+                                    }
+                                } else {
+                                    canWrite = false;
+                                }
+                                TypeWriterSettings();
+                                window.clearInterval(multipleLineReverseInterval);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        var toggle = false;
+        function BlinkEffect() {
+            var elem = document.getElementById("typeWriterEffect");
+            elem.innerHTML = blinkEffect;
+            if (toggle) {
+                elem.style.opacity = 0;
+                toggle = false;
+            } else {
+                elem.style.opacity = 1;
+                toggle = true;
+            }
+        }
+        setInterval(BlinkEffect, blinkDelay);
+    </script>
+</body>
+
+</html>

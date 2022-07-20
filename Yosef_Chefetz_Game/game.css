@@ -1,0 +1,79 @@
+ html {
+     background-image: url(pic/backrond/backrond.jpg);
+ }
+
+ td {
+     width: 250px;
+     height: 150px;
+     border: solid black 1px;
+     background-image: url('pic/backrond/backrond2.jpg');
+     border-radius: 7px;
+     padding: 0px;
+ }
+
+ img {
+     width: 250px;
+     height: 150px;
+     border-radius: 7px;
+     padding: 0px;
+     display: none;
+ }
+
+ #scooor {
+     position: fixed;
+     width: 180px;
+     height: 700px;
+     border: solid black 1px;
+     border-radius: 7px;
+     background-color: rgba(122, 140, 140, 0.781);
+     top: 50px;
+     left: 40px;
+     text-align: center;
+     font-size: 20px;
+ }
+
+ #finel,
+ #pScore {
+     padding: auto;
+     margin: auto;
+     height: 70px;
+     width: 70px;
+     border: 3px black solid;
+     border-radius: 50px;
+     line-height: 70px;
+     font-size: 25px;
+     font-weight: 900;
+ }
+
+ #userName {
+     font-size: 30px;
+     font-weight: 900;
+
+ }
+
+ .table {
+     margin-top: 50px;
+     margin-left: 20%;
+ }
+
+ button {
+     width: 160px;
+     height: 50px;
+     font-size: 22px;
+     font-weight: 900;
+     border-radius: 10px;
+ }
+
+ #timer {
+     font-size: 30px;
+     font-weight: 900;
+
+ }
+
+ #status {
+     width: 140px;
+     height: 40px;
+     font-size: 25px;
+     font-weight: 900;
+     margin: auto;
+ }
