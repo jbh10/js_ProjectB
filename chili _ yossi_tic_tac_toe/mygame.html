@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+            width: 50%;
+            height: 500px;
+            margin: auto;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 40px;
+            padding: auto;
+            background-size: 150px;
+            background-repeat: no-repeat;
+            font-size: 0px;
+
+
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        #gameOver {
+            position: absolute;
+            text-align: center;
+            opacity: 0;
+            /* margin: auto; */
+            margin-top: 0;
+            margin-right: 0;
+            width: 300px;
+            height: 100px;
+            background-color: red;
+            transition: font-size 3s, color 2s;
+        }
+
+        @keyframes won {
+            from {
+                background-color: green;
+            }
+
+            to {
+                background-color: yellow;
+            }
+        }
+
+        #finish {
+            position: absolute;
+            text-align: center;
+            opacity: 0;
+            /* margin:auto; */
+            margin-top: 0;
+            margin-left: 0;
+            width: 400px;
+            /* height: 30px; */
+            background-color: goldenrod;
+            /* animation-name: won;
+            animation-duration: 3s;
+            animation-iteration-count: 1000; */
+            transition: font-size 3s, color 2s;
+
+        }
+
+        #main {
+            color: rgb(0, 151, 68);
+            font-size: 100px;
+        }
+
+        #b1 {
+            background-color: green;
+            text-align: center;
+            width: 150px;
+            height: 70px;
+            margin: auto;
+            display: inline-block;
+            font-size: 30px;
+            animation-name: won;
+            animation-duration: 3s;
+            animation-iteration-count: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="b1">new game</button>
+    <button id="save" onclick=savetheGame()>save game</button>
+    <button id="con" onclick=continuegame()>continue game</button>
+    <h1 id="main">TIC TAC TOE</h1>
+    <h1 id=finish></h1>
+    <h2 id="gameOver"></h2>
+    <h3 id="tie"></h3>
+    <div class="grid-container">
+        <div id="a" class="grid-item">h</div>
+        <div id="b" class="grid-item">e</div>
+        <div id="c" class="grid-item">r</div>
+        <div id="d" class="grid-item">t</div>
+        <div id="e" class="grid-item">y</div>
+        <div id="f" class="grid-item">j</div>
+        <div id="g" class="grid-item">n</div>
+        <div id="h" class="grid-item">m</div>
+        <div id="i" class="grid-item">l</div>
+    </div>
+    <img src="https://cdn.icon-icons.com/icons2/1339/PNG/512/letterx_87521.png">
+
+
+
+
+
+
+</body>
+<script>
+    
+
+
+    let name1 = prompt('player 1 enter your\'e name');
+    let name2 = prompt('player 2 enter your\'e name');
+    let player1 = prompt(name1 + " " + "do you want to play x or o");
+    if (player1 == "x") {
+        alert(name1 + " " + "plays x" + " " + name2 + " " + "plays o")
+    }
+    else if (player1 == "o") {
+        alert(name1 + " " + "plays o" + " " + name2 + " " + "plays x")
+    }
+    else { alert("youre selection must be x or o") }
+
+    let squares = document.getElementsByClassName("grid-item");
+    
+
+
+    
+    let p = 0;
+    
+    let a = document.getElementById("a");
+    let b = document.getElementById("b");
+    let c = document.getElementById("c");
+    let d = document.getElementById("d");
+    let e = document.getElementById("e");
+    let f = document.getElementById("f");
+    let g = document.getElementById("g");
+    let h = document.getElementById("h");
+    let i = document.getElementById("i");
+    let tired = "a";
+    
+    for (let j = 0; j < squares.length; j++) {
+        squares[j].addEventListener("click", givex);
+        function givex() {
+
+            
+            if (player1 == "x" && this.textContent != "o" && this.textContent != "x") {
+
+                if (p % 2 == 0) {
+                    this.style.backgroundImage = "url('https://cdn.icon-icons.com/icons2/1339/PNG/512/letterx_87521.png')";
+                    this.textContent = "x"
+                    p++
+                    tired += "x"
+                    
+
+                }
+                else {
+                    this.style.backgroundImage = "url('https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8317784b-0410-46b2-9b1c-b87d5b2f9c33?w=90&h=90')"
+                    this.textContent = "o"
+                    p++
+                    tired += "o"
+                    
+                };
+            }
+            else if (player1 == "o" && this.textContent != "o" && this.textContent != "x") {
+                if (p % 2 == 0) {
+                    this.style.backgroundImage = "url('https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8317784b-0410-46b2-9b1c-b87d5b2f9c33?w=90&h=90')"
+                    this.textContent = "o"
+                    p++
+                    tired += "o"
+                    
+
+                }
+                else {
+                    this.style.backgroundImage = "url('https://cdn.icon-icons.com/icons2/1339/PNG/512/letterx_87521.png')";
+                    this.textContent = "x"
+                    p++
+                    tired += "x"
+
+                    
+
+
+
+
+
+
+                }
+            }
+
+            if (a.textContent === b.textContent && b.textContent === c.textContent ||
+                d.textContent === e.textContent && e.textContent === f.textContent ||
+                g.textContent === h.textContent &&
+                h.textContent === i.textContent
+                || a.textContent === d.textContent &&
+                d.textContent === g.textContent
+                || b.textContent === e.textContent &&
+                e.textContent === h.textContent
+                || c.textContent === f.textContent &&
+                f.textContent === i.textContent
+                || a.textContent === e.textContent &&
+                e.textContent === i.textContent
+                || c.textContent === e.textContent &&
+                e.textContent === g.textContent
+            ) {
+
+
+                if (tired.charAt(tired.length - 1) == "x" && player1 == "x") { document.getElementById("finish").textContent = "congragulations " + " " + name1 + " " + "you won" }
+
+
+                else if (tired.charAt(tired.length - 1) == "x" && player1 == "o") {
+                    document.getElementById("finish").textContent = "congragulations " + " " + name2 + " " + "you won"
+
+                }
+
+                else if (tired.charAt(tired.length - 1) == "o" && player1 == "o") {
+                    document.getElementById("finish").textContent = "congragulations " + " " + name1 + " " + "you won"
+
+                }
+
+                else { document.getElementById("finish").textContent = "congragulations " + " " + name2 + " " + "you won" }
+
+
+
+
+
+
+
+                document.getElementById("finish").style.opacity = 0.9;
+                myMove();
+
+                var id = null;
+                function myMove() {
+                    var elem = document.getElementById("finish");
+                    var pos = 0;
+                    clearInterval(id);
+                    id = setInterval(frame, 10);
+                    function frame() {
+                        if (pos == 600) {
+                            clearInterval(id);
+                        } else {
+                            pos++;
+                            elem.style.top = pos + 'px';
+                            elem.style.left = pos + 'px';
+                            elem.style.fontSize = 30 + 'px';
+
+                        }
+                    }
+                }
+                document.getElementById("gameOver").textContent = "GAME OVER";
+                document.getElementById("gameOver").style.opacity = 0.9;
+                myGame();
+
+                var ip = null;
+                function myGame() {
+                    var elemen = document.getElementById("gameOver");
+                    var posis = 0;
+                    clearInterval(ip);
+                    ip = setInterval(frame, 10);
+                    function frame() {
+                        if (posis == 150) {
+                            clearInterval(ip);
+                        } else {
+                            posis++;
+                            elemen.style.top = posis + 'px';
+                            elemen.style.right = posis + 'px';
+                            elemen.style.fontSize = 44 + 'px';
+
+                        }
+                    }
+                }
+            }
+
+
+            else if (
+                (a.textContent == "x" || a.textContent == "o")
+                && (b.textContent == "x" || b.textContent == "o")
+                && (c.textContent == "x" || c.textContent == "o")
+                && (d.textContent == "x" || d.textContent == "o")
+                && (e.textContent == "x" || e.textContent == "o")
+                && (f.textContent == "x" || f.textContent == "o")
+                && (g.textContent == "x" || g.textContent == "o")
+                && (h.textContent == "x" || h.textContent == "o")
+                && (i.textContent == "x" || i.textContent == "o")) {
+                document.getElementById("tie").textContent = "tie";
+
+                document.getElementById("tie").style.opacity = 0.9;
+                myTei();
+                document.getElementById("gameOver").textContent = "GAME OVER";
+                document.getElementById("gameOver").style.opacity = 0.9;
+
+                myGame();
+            }
+            var ig = null;
+            function myTei() {
+                var eleme = document.getElementById("tie");
+                var posi = 0;
+                clearInterval(ig);
+                ig = setInterval(frame, 10);
+                function frame() {
+                    if (posi == 450) {
+                        clearInterval(ig);
+                    } else {
+                        posi++;
+                        eleme.style.top = posi + 'px';
+                        //   eleme.style.left = posi + 'px'; 
+                        eleme.style.fontSize = 60 + 'px';
+
+                    }
+                }
+            }
+
+            var ip = null;
+            function myGame() {
+                var elemen = document.getElementById("gameOver");
+                var posis = 0;
+                clearInterval(ip);
+                ip = setInterval(frame, 10);
+                function frame() {
+                    if (posis == 150) {
+                        clearInterval(ip);
+                    } else {
+                        posis++;
+                        elemen.style.top = posis + 'px';
+                        elemen.style.right = posis + 'px';
+                        elemen.style.fontSize = 44 + 'px';
+
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+    document.getElementById("b1").addEventListener("click", newGame);
+    function newGame() {
+        window.location.reload()
+    }
+
+    //             let newGame = () => {
+    //                 pro
+    //                 if(){
+    //                     location.reload()
+    //                 }
+
+
+    //                 }
+
+
+    //         }
+    //     }
+    // }
+    function savetheGame() {
+        let saveGame = {
+            'a': a.textContent, 'b': b.textContent,
+            'c': c.textContent, 'd': d.textContent,
+            'e': e.textContent, 'f': f.textContent,
+            'g': g.textContent, 'h': h.textContent,
+            'i': i.textContent, 'plery': player1, 'name': name1, 'name2': name2
+        }
+        localStorage.setItem("savedgame", JSON.stringify(saveGame))
+    }
+
+    function continuegame() {
+        let state = JSON.parse(localStorage.getItem("savedgame"))
+
+        for (const key in state) {
+            if ((state[key] == 'o')) {
+                state[key] = "url('https://quizizz.com/media/resource/gs/quizizz-media/quizzes/8317784b-0410-46b2-9b1c-b87d5b2f9c33?w=90&h=90')"
+            } else if ((state[key] == 'x')) {
+                state[key] = "url('https://cdn.icon-icons.com/icons2/1339/PNG/512/letterx_87521.png')"
+            }
+        }
+        a.style.backgroundImage = state['a']
+        b.style.backgroundImage = state['b']
+        c.style.backgroundImage = state['c']
+        d.style.backgroundImage = state['d']
+        e.style.backgroundImage = state['e']
+        f.style.backgroundImage = state['f']
+        g.style.backgroundImage = state['g']
+        h.style.backgroundImage = state['h']
+        i.style.backgroundImage = state['i']
+
+    
+    a.style.backgroundImage = state['a']
+    }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="matchingGametA.css">
+
+</head>
+
+<body onload="onloadFunc()">
+    <h1>Memory Game</h1><br>
+
+    <section class="includes1">
+        <div id="placeholder" class="includes"></div>
+        
+        <br><br>
+        <button onclick="restart()" id=reset>restart </button>
+    </section>
+    <section id="info">
+        <h2 id="finelScore"></h2>
+
+        <h2 id="user"></h2>
+        <p id="points"></p>
+        <section timer id='timer' class=timer></section>
+        <audio id="myAudio" autoplay hidden>
+            <source src="music.mp3" />
+
+        </audio>
+    </section>
+
+</body>
+<script>
+
+    var cardcount = 16
+
+    var allcards = [
+    "https://media3.giphy.com/media/T3rgaqd1vT6idUS12Q/giphy.gif",//cat
+        "https://publicdomainvectors.org/tn_img/Bear.webp",
+        "https://media3.giphy.com/media/xWy59WNkpt6Hm/200.gif",//elephant
+        "https://publicdomainvectors.org/tn_img/Schlange.webp",
+        "https://media2.giphy.com/media/3o7qE10YfZGcfA9D9u/giphy.gif",//zebra
+        "https://publicdomainvectors.org/tn_img/Hen_and_chicks_cartoon_04_der.webp",
+        "https://media3.giphy.com/media/T3rgaqd1vT6idUS12Q/giphy.gif",//cat
+        "https://publicdomainvectors.org/tn_img/Bear.webp",
+        "https://media3.giphy.com/media/xWy59WNkpt6Hm/200.gif",//elephant
+        "https://publicdomainvectors.org/tn_img/Schlange.webp",
+        "https://media2.giphy.com/media/3o7qE10YfZGcfA9D9u/giphy.gif",//zebra
+        "https://publicdomainvectors.org/tn_img/Hen_and_chicks_cartoon_04_der.webp",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cow_female_black_white.jpg/1280px-Cow_female_black_white.jpg",
+        "https://media4.giphy.com/media/8oP12pJCHcwdkPL4dV/giphy.gif",//fish
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cow_female_black_white.jpg/1280px-Cow_female_black_white.jpg",
+        "https://media4.giphy.com/media/8oP12pJCHcwdkPL4dV/giphy.gif",//fish
+       
+    ]
+
+    var currentcards = allcards.slice(0, cardcount)
+    var imgdivs = []
+
+    for (let i = 0; i < cardcount; i++) {
+        var elem = document.createElement("div")
+        var elem2 = document.createElement("img")
+        // elem2.src = currentcards[i]
+        elem2.className = "hide"
+        elem2.setAttribute("index", i)
+        elem2.setAttribute("id", i)
+        elem.appendChild(elem2)
+        imgdivs.push(elem)
+        var elem3 = document.getElementById("placeholder")
+        elem3.appendChild(elem)
+    }
+
+
+
+    let TheOrder = 0
+    let theScore = 0;
+    let points = document.getElementById("points")
+    // let win = document.getElementById("win")
+    let h1 = document.getElementById("finelScore")
+    let div = imgdivs
+    let img = document.getElementsByTagName("img")
+    let array = []
+    let card = 0
+    let finelscore = 0
+    let winPoints = 0
+    let savearray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
+
+    var audio = document.getElementById("myAudio");
+    audio.volume = 0.2;
+
+   
+
+
+    for (let j = 0; j < div.length; j++) {
+
+
+        div[j].addEventListener("click", type)
+
+        function type() {
+
+            if (card == 2) {
+                return
+            }
+            card++
+
+
+
+
+
+
+            img[j].style.display = "block"
+            array.push(img[j])
+
+            if (array[1] && array[0] && array[1].src == array[0].src && array[1].id != array[0].id) {
+
+
+
+
+                for (let k = 0; k < array.length; k++) {
+                    array[k].addEventListener("click", function (e) {
+                        e.preventDefault();
+
+                        e.stopImmediatePropagation();
+                    });
+
+                }
+
+                card = 0
+
+
+
+                savearray[array[0].getAttribute("index")] = 1
+                savearray[array[1].getAttribute("index")] = 1
+                const jsonArr = JSON.stringify(savearray);
+                localStorage.setItem(theUser.firstName + "Savearray", jsonArr);
+
+
+
+                array = []
+                finelscore++
+                h1.innerHTML = "your finel score is  " + finelscore
+
+
+
+            }
+            if (array[1] && array[0] && array[1].src !== array[0].src || array[1] && array[0] && array[1].id == array[0].id) {
+
+                setTimeout(() => {
+                    // if (array[0] && array[1]) {
+                    array[0].style = "none"
+                    array[1].style = "none"
+                    // console.log(array[0]);
+                    array = []
+
+
+                    // }
+
+                }, 300)
+
+                card = 0
+            }
+
+
+            if (finelscore == 8) {
+                winPoints += 5
+                win(winPoints)
+                points.innerHTML = "     your points <br>" + winPoints
+                // console.log(winPoints)
+
+                h1.innerHTML = "<br> you win hurray"
+                finelscore = 0
+                // user[i].points += winPoints
+
+                // win.src = "bollon.png"
+
+                let pos = 0
+                // function move() {
+                //     pos++
+                //     win.style.top = pos + "px"
+                //     console.log(pos);
+
+
+                // }
+                // let stop = setInterval(move, 50);
+                // audio.pause();
+
+            }
+
+
+        }
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        function win(point) {
+            for (let l = 0; l < users.length; l++) {
+
+                if (users[l].firstName == theUser.firstName && users[l].lastName == theUser.lastName) {
+
+                    users[l].points = point;
+
+
+
+                    localStorage.setItem("users", JSON.stringify(users));
+
+                }
+            }
+        }
+        function restart() {
+
+            function Mix() {
+                theOrder = currentcards.sort(() => 0.5 - Math.random())
+                console.log(theOrder);
+
+                localStorage.setItem(theUser.firstName + "theOrder", JSON.stringify(theOrder));
+            }
+
+            Mix()
+            for (let i = 0; i < currentcards.length; i++) {
+                img[i].src = theOrder[i]
+                // console.log(j[2]);
+
+
+            }
+            for (let m = 0; m < img.length; m++) {
+                img[m].style = 'none';
+
+                savearray[m] = 0;
+                const jsonArr = JSON.stringify(savearray);
+                localStorage.setItem(theUser.firstName + "Savearray", jsonArr);
+            }
+            finelscore = 0
+
+
+
+            array = []
+            countdown(0, 59);
+            audio.play()
+        }
+
+
+    }
+    let theUser = JSON.parse(localStorage.getItem("theUser"));
+    // console.log(theUser);
+
+    document.getElementById("user").innerHTML = " <br>  player <br>" + theUser.firstName + "<br>" + theUser.lastName;
+    points.innerHTML = "your points <br>" + winPoints
+    // console.log(user);
+
+
+
+    // console.log(cordSrc);
+
+
+    function onloadFunc() {
+
+        let cordSrc = JSON.parse(localStorage.getItem(theUser.firstName + "theOrder"))
+        if (cordSrc) {
+            for (let q = 0; q < img.length; q++) {
+                // alert(img[1].src)
+                img[q].src = cordSrc[q]
+
+
+            }
+        } else {
+            for (let g = 0; g < currentcards.length; g++) {
+                img[g].src = currentcards[g]
+                // console.log(j[2]);
+
+
+            }
+        }
+
+
+        // 
+
+
+        const str = localStorage.getItem(theUser.firstName + "Savearray");
+
+        const parsedArr = JSON.parse(str);
+
+        for (n = 0; n < 12; n++) {
+            if (parsedArr[n] == 1) {
+                theScore++
+                finelscore = theScore / 2
+                img[n].style.display = 'block';
+                savearray[n] = 1;
+            }
+            // win()
+        }
+        // localStorage.
+
+        // countdown(0, 30);
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        for (let o = 0; o < users.length; o++) {
+
+            if (users[o].firstName == theUser.firstName && users[o].lastName == theUser.lastName) {
+
+                winPoints = users[o].points
+
+
+                points.innerHTML = "your points <br>" + winPoints
+                // console.log("point", point);
+                // console.log("users: " users);
+
+
+
+            }
+        }
+
+
+
+        // 
+    }
+
+
+
+    var timeoutHandle;
+    function countdown(minutes, seconds) {
+        function tick() {
+            var counter = document.getElementById("timer");
+            counter.innerHTML =
+                minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+            seconds--;
+            if (seconds >= 0) {
+                timeoutHandle = setTimeout(tick, 1000);
+            } else {
+                if (minutes >= 1) {
+                    // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+                    setTimeout(function () {
+                        countdown(minutes - 1, 59);
+                    }, 1000);
+                }
+            }
+            if (minutes == 0 && seconds == 0) {
+                // restart()
+            }
+        }
+        tick();
+    }
+
+
+
+
+
+</script>
+
+</html>

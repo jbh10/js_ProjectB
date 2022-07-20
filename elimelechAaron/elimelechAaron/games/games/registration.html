@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=600);
+           
+        }
+
+        #includes {
+            background-color: rgba(220, 221, 206, 0.479);
+            margin-top: 10%;
+            margin-left: 30%;
+            height: 400px;
+            width: 500px;
+            padding: 2%;
+           
+        }
+
+        #includes>* {
+            text-align: center;
+            margin-left: 10%;
+
+        }
+
+        button {
+            background-color: rgb(230, 235, 187);
+            width: 75px;
+            height: 25px;
+        }
+
+        label{
+           color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="includes">
+        <h1>Registration</h1>
+
+        <label for=""> Name:</label> <br>
+        <input type="text" id="userName" required />
+        <br /><br>
+        <label for=""> Last Name:</label> <br>
+        <input type="text" id="lastName" required />
+        <br /><br />
+        <label for=""> Password:</label> <br>
+        <input type="password" id="password" required />
+        <a id="anker"> <button onclick="saveUser()">sign in</button></a>
+        <a id="logIn">
+            <h4>go to log in</h4>
+        </a>
+    </div>
+    <script>
+        let sumbiting = document.getElementById("anker")
+
+        function saveUser() {
+            let first = document.getElementById('userName').value;
+            let last = document.getElementById('lastName').value;
+            let password = document.getElementById('password').value;
+
+
+            let user = {
+                firstName: first,
+                lastName: last,
+                password: password,
+                points: 0
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            console.log(users);
+            for (let i = 0; i < users.length; i++) {
+                let user1 = users[i];
+                if (user1.firstName == user.firstName && user1.lastName == user.lastName) {
+                    alert("אתה כבר רשום במערכת גש למסך ההיתחברות")
+                    return;
+                }
+            }
+            users.push(user)
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("נרשמת בהצלחה");
+            sumbiting.href = "login.html"
+
+
+        }
+
+        document.getElementById("logIn").href = "login.html"
+
+
+
+
+    </script>
+</body>
+
+</html>

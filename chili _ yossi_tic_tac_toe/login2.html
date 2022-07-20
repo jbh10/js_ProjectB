@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightgreen;
+        }
+
+        div {
+           text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <div>
+        User: <input type="text" id="userName"/> <br /><br>
+    Password: <input type="password" id="password"/> <br /><br>
+        <button onclick="login()">Login</button>
+    </div>
+    <script>
+        function login() {
+            let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || []
+
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+                if (user.firstName == name && user.password == pwd) {
+                    localStorage.setItem("currentPlayer",user.firstName)
+                    location.href = "/mygame.html";
+                    return;
+                }
+            }
+            alert("Error");
+        }
+    </script>
+</body>
+
+</html>

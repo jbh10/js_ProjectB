@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 300px;
+            height: 350px;
+            background-color: bisque;
+            margin-top: 50px;
+            margin-left: 600px;
+            text-align: center;
+        }
+
+        #bod {
+            background-image: url(1506114.jpg);
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body id="bod">
+    <div id="main">
+        <h1>Login</h1>
+
+        Email: <input type="text" id="userName" /> <br /><br>
+        Password: <input type="password" id="password" /> <br /><br>
+        <a id="submit" href=""><button onclick="login()">Login</button></a>
+    </div>
+    <script>
+        let submit = document.getElementById("submit")
+        function login() {
+            let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+            let thisUser = "";
+            let users = JSON.parse(localStorage.getItem("users")) || []
+            console.log(users);
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+                if (user.firstName == name && user.password == pwd) {
+                    thisUser = users[i];
+                    console.log(thisUser);
+                    localStorage.setItem("thisUser", JSON.stringify(thisUser))
+                    alert(" התחברת בהצלחה מיד תועבר למסך המשחק ");
+                    submit.href = "memory game.html";
+                    return;
+                }
+            }
+            alert("אחד מהנתונים שהצגת שגוי");
+        }
+    </script>
+</body>
+
+</html>

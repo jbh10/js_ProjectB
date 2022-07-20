@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=600);
+        }
+
+
+        #includes {
+            background-color: rgba(220, 221, 206, 0.507);
+            margin-top: 10%;
+            margin-left: 30%;
+            height: 400px;
+            width: 500px;
+            padding: 2%;
+
+        }
+
+        #includes>* {
+            text-align: center;
+            margin-left: 10%;
+
+        }
+
+        button {
+            background-color: rgb(220, 221, 206);
+            width: 75px;
+            height: 25px;
+        }
+        label{
+           color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="includes">
+        <h1>log in</h1>
+
+        <label for=""> Name:</label> <br>
+        <input type="text" id="firstName" required />
+        <br /><br>
+        <label for=""> Last Name:</label> <br>
+        <input type="text" id="lastName" required />
+        <br /><br />
+        <label for=""> Password:</label> <br>
+        <input type="password" id="password" required />
+        <a id="anker"> <button onclick="login()">log in</button></a>
+    </div>
+
+
+
+    <script>
+        function login() {
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let pwd = document.getElementById('password').value;
+
+            let person = {
+                firstName: firstName,
+                lastName: lastName,
+            }
+
+
+            localStorage.setItem("theUser", JSON.stringify(person));
+
+
+
+            let users = JSON.parse(localStorage.getItem("users")) || []
+
+
+
+            for (let i = 0; i < users.length; i++) {
+
+                //  alert(users[1].firstName)
+
+                // let user = users[i];
+                if (users[i].firstName == firstName && users[i].lastName == lastName && users[i].password == pwd) {
+
+
+                    document.getElementById("anker").href = "gamepage.html"
+                    return
+                }
+
+
+
+            }
+
+            alert("try again")
+
+        }
+    </script>
+</body>
+
+</html>

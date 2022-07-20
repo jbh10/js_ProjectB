@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         body{
+            background-image: url(img.jpg);
+             background-size: 100% 150%;
+        }
+        img {
+
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            background-color: rgb(238, 238, 203);
+
+        }
+
+        div {
+            margin-top: 100px;
+            margin-left: 37%
+        }
+
+        button {
+            width: 100px;
+            background-color: antiquewhite;
+            margin-left: 100px;
+        }
+
+        h2 {
+            border: 1px solid black;
+            margin-left: 5%;
+            color: rgb(46, 51, 51);
+            width: 200px;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h2> TIC TAC TOE</h2>
+        <a id="start"> <button>start over</button></a><br><br>
+        <img id="one">
+        <img id="two">
+        <img id="three"><br>
+        <img id="four">
+        <img id="five">
+        <img id="six"><br>
+        <img id="seven">
+        <img id="eight">
+        <img id="nine">
+        <p id="player"></p>
+    </div>
+    <script>
+
+        let one1 = document.getElementById("one")
+        let two = document.getElementById("two")
+        let three = document.getElementById("three")
+        let four = document.getElementById("four")
+        let five = document.getElementById("five")
+        let six = document.getElementById("six")
+        let seven = document.getElementById("seven")
+        let eight = document.getElementById("eight")
+        let nine = document.getElementById("nine")
+        let start = document.getElementById("start")
+        let playerTurn = document.getElementById("player")
+        let o = "https://us.123rf.com/450wm/kchung/kchung1610/kchung161000473/63782063-light-red-number-0-3d-rendering-graphic-isolated-on-white-background.jpg?ver=6"
+        let x = "https://s3.amazonaws.com/static.graphemica.com/glyphs/i500s/000/002/004/original/0058-500x500.png?1275291789"
+        let player = 0;
+
+
+
+
+      
+
+            for (let i = 0; i < 9; i++) {
+
+                let pic = document.getElementsByTagName("img")[i]
+                pic.addEventListener("click", type)
+
+
+            }
+
+
+
+            function type() {
+
+                if (one1.src == o && four.src == o && seven.src == o || one1.src == x && four.src == x && seven.src == x
+                    || one1.src == o && two.src == o && three.src == o || one1.src == x && two.src == x && three.src == x
+                    || four.src == o && five.src == o && six.src == o || four.src == x && five.src == x && six.src == x
+                    || seven.src == o && eight.src == o && nine.src == o || seven.src == x && eight.src == x && nine.src == x
+                    || two.src == o && five.src == o && eight.src == o || two.src == x && five.src == x && eight.src == x
+                    || three.src == o && six.src == o && nine.src == o || three.src == x && six.src == x && nine.src == x
+                    || three.src == o && five.src == o && seven.src == o || three.src == x && five.src == x && seven.src == x
+                    || one1.src == o && five.src == o && nine.src == o || one1.src == x && five.src == x && nine.src == x) {
+                    playerTurn.innerHTML = "YOU WIN"
+                    alert("you won")
+                    return
+                }
+
+
+                this.style.pointerEvents = "none"
+                if (player == 0) {
+                    this.src = o;
+                    player++
+                    playerTurn.innerHTML = "now its player first players turn"
+                }
+                else if (player == 1) {
+                    this.src = x;
+                    player = 0
+                    playerTurn.innerHTML = "now its player second players turn"
+                }
+            }
+
+
+
+        
+        // options()
+
+
+        start.addEventListener("click", function () {
+            this.href = "tic_tac_toe.html"
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+    #screen {
+
+        background-color: blueviolet;
+        height: 700px;
+        width: 800px;
+       position: absolute;
+    background-image:url(https://cdn.assets.scratch.mit.edu/internalapi/asset/84208d9a3718ec3c9fc5a32a792fa1d0.png/get/) ;
+        
+       
+
+    }
+#trap1{
+    position: absolute;
+    left:355px;
+    bottom: 647px;
+    opacity: 1;
+    width: 55;
+    height: 50px;
+        width: 50px;
+}
+    /* .trap {
+        
+        
+      
+
+
+    } */
+
+    #man {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        bottom:  0px;
+        left: 200px;
+    }
+
+    #boolet{
+        width: 30px;
+        height: 30px;
+      
+        position: absolute; 
+        bottom: 0px;
+        left:210px;
+    }
+    #scoreDiv {
+       
+        background-color: rgb(45, 161, 43);
+        height: 100px;
+        width: 20%;
+       position:absolute ;
+       right: 10px;
+
+    }
+
+   
+
+    button {
+        background-color: aqua;
+        padding: 10px;
+        border: 3px black solid;
+     
+ 
+    }
+    #buttons{
+        position: absolute;
+        bottom: 20px;
+    }

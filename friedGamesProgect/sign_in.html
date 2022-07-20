@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="‏‏sign_in .css">
+</head>
+<body>
+    <header>Registration</header>
+ <main>
+    Name: <input type="text" id="userName" />
+    <br />
+
+    Password: <input type="password" id="password" />
+    <button onclick="saveUser()">Save User</button>
+    <button ><a href="login.html">login here</a></button>
+ </main>
+
+
+    <script>
+        function saveUser() {
+        
+        
+       
+            let userName = document.getElementById('userName').value;
+       
+            let password = document.getElementById('password').value;
+            
+
+            let user = {
+                user:userName,
+                password: password
+
+            }
+
+let userData = {
+    user: userName,
+    
+}
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            // if(! users) {
+            //     users = [];
+            // }
+            
+            for(i = 0; i<users.length; i++){
+ if(user.userName == users[i].userName &&  user.password==users[i].password){
+alert("error")
+return
+
+ }
+
+}
+  
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("You have successfully registered")
+        
+     
+    }
+   
+        
+    
+    </script>
+</body>
+</html>

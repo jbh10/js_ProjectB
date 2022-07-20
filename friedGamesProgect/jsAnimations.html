@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .anim {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="stopAnimation()">Stop Animation</button>
+    <div class="anim" id="divAnim">
+
+    </div>
+    <script>
+
+        let anotherDiv = 300;
+        let pos = 0;
+        let interval;
+        function onDivClick() {
+            let div = this;
+            interval = setInterval(function() {
+                pos += 3;
+                div.style.top = pos + 'px';
+                div.style.left = pos + 'px';
+            }, 100)
+        }
+        document.getElementById("divAnim").addEventListener('click', onDivClick);
+
+        function stopAnimation() {
+            clearInterval(interval)
+            pos = 0;
+        }
+
+    </script>
+</body>
+</html>
+<!-- Injection By NetFree -->
+<script  >
+window._shareFileNormalReport = false
+</script>
+<script src="https://netfree.link/injection-script/report-share-file.js" type="text/javascript" async  ></script>
+<script src="https://netfree.link/injection-script/go-payment.js" type="text/javascript" async  ></script>
+<script src="https://netfree.link/injection-script/popup-card-init.js" type="text/javascript" async  ></script>

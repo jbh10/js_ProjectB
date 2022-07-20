@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header id="main">Login</header>
+<main>
+    User: <input type="text" id="userName" /> <br />
+    Password: <input type="password" id="password" /> <br />
+    <button  onclick="login()" >  <a id="homeRef"  href="">Login</a> </button>
+</main>
+ <footer><h3>Dont have account? u welccome o sign in<a href="sign_in.html"> here</a></h3>
+ </footer>
+
+    <script>
+        let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem("users"));
+            let user = users[0];
+        console.log("er");
+        function login(){
+            let name = document.getElementById('userName').value;
+            let pwd = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem("users"));
+            let user = users[0];
+            console.log(user.user);
+            for(let i = 0; i < users.length; i ++) {
+                let user = users[i];
+                if(user.user == name  && user.password == pwd) {
+                    saveUserName()
+                    document.getElementById("homeRef").href = "game.html"
+                    return;
+                    
+                }
+           
+                 }
+                 alert("Error")
+        }  
+
+        
+
+        function saveUserName(){
+            let userData
+           let name = document.getElementById('userName').value;
+           localStorage.setItem("userName", name);
+    
+        }
+    </script>
+</body>
+</html>

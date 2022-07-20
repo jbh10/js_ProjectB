@@ -1,0 +1,89 @@
+body {
+    background-image: url(img.jpg);
+    background-size: 100% 100%;
+}
+
+.hide {
+    display: none;
+    width: 150px;
+    height: 150px;
+
+}
+
+#reset{
+    position: relative;
+    top :-25px;
+    left: 700px;
+    
+    margin: auto;
+}
+.includes div {
+    background-color: rgba(255, 228, 196, 0.459);
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    cursor: pointer;
+
+}
+
+.includes {
+    display: flex;
+    width: 40%;
+    height:auto;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+
+}
+
+#win {
+    width: 300px;
+    position: absolute;
+}
+
+h1 {
+    position: relative;
+    left: 40%;
+}
+
+#points {
+    width: 55px;
+    height: 55px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 30px;
+    margin: auto;
+    margin-top: 70%;
+}
+
+#info {
+    width: 200px;
+    height: 455px;
+    position: absolute;
+    top: 155px;
+    left: 10px;
+    background-color: rgba(245, 223, 196, 0.548);
+    text-align: center;
+}
+
+button {
+    position: relative;
+    top: 25px;
+    left: 250px;
+    width: 120px;
+    height: 25px;
+    background-color: rgba(250, 235, 215, 0.418);
+}
+
+.timer {
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+}
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }

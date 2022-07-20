@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #main {
+            width: 300px;
+            height: 350px;
+            background-color: bisque;
+            margin-top: 50px;
+            margin-left: 600px;
+text-align: center;
+        }
+        #bod {
+            background-image: url(1506114.jpg);
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body id="bod">
+    <div id="main">
+    <h1>Registration</h1><br>
+    Emial: <input type="email" id="userName" />
+    <br /><br>
+    Password: <input type="password" id="password" /><br><br>
+    <a id="submit" href=""> <button onclick="saveUser()">Save User</button></a>
+    </div>
+    <script>
+        let submit = document.getElementById("submit")
+        function saveUser() {
+
+            let first = document.getElementById('userName').value;
+            let password = document.getElementById('password').value;
+                let user = {
+                    firstName: first,
+                    password: password,
+                    score: 0
+                }
+            
+           
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            console.log(users);
+            for (let i = 0; i < users.length; i++) {
+                let user1 = users[i];
+                if (user1.firstName === user.firstName) {
+                    alert("אתה כבר רשום במערכת גש למסך ההיתחברות");
+                    submit.href = "log in.html";
+                    return;
+                }
+            }
+            users.unshift(user);
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("נרשמת בהצלחה");
+            submit.href = "log in.html";
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
