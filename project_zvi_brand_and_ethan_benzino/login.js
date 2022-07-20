@@ -11,7 +11,7 @@ function login() {
         for (let i = 0; i < users.length; i++) {
             user = users[i]
             if (document.getElementById('name1').value == user.firstName && document.getElementById('password1').value == user.password) {
-                window.open("./game/game2.html", "_self");
+                window.open("game/game2.html", "_self");
             }
         }
     }
