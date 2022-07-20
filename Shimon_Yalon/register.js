@@ -27,7 +27,7 @@ function submit() {
         return;
     }
 
-   window.open('capitalGame.html', '_self')
+   window.open('https://jbh10.github.io/js_ProjectB/Shimon_Yalon/capitalGame.html', '_self')
      //   window.location.pathname = ("capitalGame.html");
     }
 
