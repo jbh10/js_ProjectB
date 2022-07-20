@@ -1,0 +1,188 @@
+
+
+//get the player detales
+let player = JSON.parse(localStorage.getItem("thisPlayer"))
+document.getElementById("thePlayer").innerHTML =
+    (`${player.firstName} <br> ${player.lastName}`)
+document.getElementById("points").innerText = player.points
+
+//login
+function login() {
+    window.location.href = "../login/login.html"
+}
+//register
+function register() {
+    window.location.href = "../register/register.html"
+}
+
+
+
+const colors = ["red", "blue", "green", "yellow", "grey", "pink"]
+
+let numOfLine = 1;
+const mainColors = [];
+let color = 0;
+
+//start new game
+function startNewGame() {
+    document.getElementById("buttonStart").style.pointerEvents = "none"
+    // numOfLine = 1;
+    document.getElementById("mainA").style.display = "block";
+    document.getElementById("mainColor").style.display = "none";
+    setMainColors();
+    newDiv(numOfLine);
+}
+
+//set the main colors
+function setMainColors() {
+    for (let index = 0; index < 4; index++) {
+        let num = Math.floor(Math.random() * colors.length);
+        mainColors.push(colors[num]);
+        document.getElementById(`main${index}`).style.backgroundColor = colors[num]
+    }
+    console.log(mainColors)
+}
+
+//create a new line
+function newDiv(numOfLine) {
+    let div1 = document.createElement('div');
+    div1.setAttribute("class", "main");
+    div1.setAttribute("id", (`line${numOfLine}`));
+    document.getElementById("main").appendChild(div1);
+    //create the divs for user colors
+    for (let index = 0; index < 4; index++) {
+        let div2 = document.createElement('div');
+        div2.setAttribute("class", "squares");
+        div2.setAttribute("id", (`color${numOfLine}${index}`));
+        div2.addEventListener("click", function () {
+            setColors(this, color);
+            if (color == 5) {
+                color = 0
+            }
+            else {
+                color++
+            }
+        })
+        document.getElementById(`line${numOfLine}`).appendChild(div2);
+    }
+    //create a div for resolt
+    let div3 = document.createElement('div');
+    div3.setAttribute("class", "squares")
+    div3.setAttribute("id", (`color${numOfLine}4`));
+    document.getElementById(`line${numOfLine}`).appendChild(div3);
+
+    for (let i = 0; i < 4; i++) {
+        let div31 = document.createElement('div');
+        div31.setAttribute("id", (`cheak${numOfLine}${i}`))
+        div31.setAttribute("class", "resolt")
+        document.getElementById(`color${numOfLine}4`).appendChild(div31);
+    }
+    //create button for cheak
+    let cheak = document.createElement("div");
+    cheak.setAttribute("class", "squares")
+    cheak.setAttribute("id", (`color${numOfLine}5`));
+    cheak.innerHTML = "cheak";
+    cheak.addEventListener("click", function () {
+        cheakUserColors(numOfLine)
+    })
+    document.getElementById(`line${numOfLine}`).appendChild(cheak);
+}
+
+
+
+//set the user colors
+function setColors(div, color) {
+    div.style.background = colors[color];
+}
+
+
+
+//get and cheak the user colors
+function cheakUserColors(numOfLine) {
+    document.getElementById(`color${numOfLine}5`).style.pointerEvents = "none"
+
+    //user colors into the array
+    const userColors = []
+    for (let index = 0; index < 4; index++) {
+        let color1 = document.getElementById(`color${numOfLine}${index}`).style.backgroundColor;
+        userColors.push(color1);
+    }
+
+    //main colors into another array
+    const mainColors1 = []
+    for (let index = 0; index < mainColors.length; index++) {
+        mainColors1.push(mainColors[index]);
+    }
+
+    //cheak position of user colors
+    let rightColor = 0;
+    let rightPosition = 0;
+    for (let i = 0; i < userColors.length; i++) {
+        if (userColors[i] == mainColors1[i]) {
+            rightPosition++
+            delete mainColors1[i];
+            delete userColors[i];
+        }
+    }
+
+    for (let i = 0; i < userColors.length; i++) {
+        if (mainColors1.indexOf(userColors[i]) >= 0 && userColors[i] !== mainColors1[i]) {
+            rightColor++
+            delete mainColors1[mainColors1.indexOf(userColors[i])];
+        }
+    }
+
+    //enter the resolt
+    for (let i = 0; i < rightPosition; i++) {
+        let div1 = document.getElementById(`cheak${numOfLine}${i}`);
+        div1.style.backgroundColor = "black"
+    }
+    for (let i = 0; i < rightColor; i++) {
+        let div2 = document.getElementById(`cheak${numOfLine}${i + rightPosition}`);
+        div2.style.backgroundColor = "burlywood"
+    }
+
+    //cheak if game over
+    if (rightPosition == 4) {
+        if (numOfLine <= 5) {
+            player.points += 6
+        }
+        else if (numOfLine > 5 && numOfLine < 10) {
+            player.points += 3
+        }
+        //save the points
+        localStorage.setItem("thisPlayer", JSON.stringify(player))
+        window.location.href = "../success/success.html"
+        let save = JSON.parse(localStorage.getItem("players"));
+        for (const iterator of save) {
+            if (iterator.userName == player.userName) {
+                iterator.points = player.points
+                
+            }
+        }
+        localStorage.setItem("players", JSON.stringify(save))
+    }
+    else {
+        numOfLine++
+        newDiv(numOfLine)
+    }
+}
+
+
+//get hint
+function hint() {
+    if (player.points >= 10) {
+        let num = Math.floor(Math.random() * mainColors.length)
+        let hint = document.getElementById(`color${numOfLine}${num}`);
+        hint.style.background = mainColors[num];
+        hint.style.border = "2px dashed white";
+        hint.style.pointerEvents = "none";
+        player.points -= 10;
+        document.getElementById("points").innerText = player.points;
+    }
+    else {
+        alert("you have no points")
+    }
+}
+let save = JSON.parse(localStorage.getItem("players"));
+console.log(save);

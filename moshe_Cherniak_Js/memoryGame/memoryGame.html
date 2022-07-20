@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="memoryGame.css">
+</head>
+
+<body>
+    <nav>
+        <ul id="nevegation">
+            <li><button class="nav" id="nav1" onclick="newGame(10, 1)">level 1</button></li>
+            <li><button class="nav" id="nav2" onclick="newGame(20, 2)">level 2</button></li>
+            <li><button class="nav" id="nav3" onclick="newGame(30, 3)">level 3</button></li>
+        </ul>
+    </nav>
+    <h1 id="head">memory game</h1>
+    <h2 id="level"></h2>
+    <div id="success"><img src="pictures/success.gif" alt=""><br>
+        you succided <br>
+        <button id="rand" onclick="newGame(sameLevel, sameId)">play again</button>
+    </div>
+
+    <div id="allitems">
+        <div class="items" id="item0" onclick="clicked(0, this.id)">
+            <img id="item0img" src="pictures/3.jpg" alt="">
+        </div>
+        <div class="items" id="item1" onclick="clicked(1, this.id)">
+            <img id="item1img" src="pictures/1.jpg" alt="">
+        </div>
+        <div class="items" id="item2" onclick="clicked(2, this.id)">
+            <img id="item2img" src="pictures/6.jpg" alt="">
+        </div>
+        <div class="items" id="item3" onclick="clicked(3, this.id)">
+            <img id="item3img" src="pictures/10.jpg" alt="">
+        </div>
+        <div class="items" id="item4" onclick="clicked(4, this.id)">
+            <img id="item4img" src="pictures/7.jpg" alt="">
+        </div>
+        <div class="items" id="item5" onclick="clicked(5, this.id)">
+            <img id="item5img" src="pictures/9.jpg" alt="">
+        </div>
+        <div class="items" id="item6" onclick="clicked(6, this.id)">
+            <img id="item6img" src="pictures/10.jpg" alt="">
+        </div>
+        <div class="items" id="item7" onclick="clicked(7, this.id)">
+            <img id="item7img" src="pictures/1.jpg" alt="">
+        </div>
+        <div class="items" id="item8" onclick="clicked(8, this.id)">
+            <img id="item8img" src="pictures/8.jpg" alt="">
+        </div>
+        <div class="items" id="item9" onclick="clicked(9, this.id)">
+            <img id="item9img" src="pictures/3.jpg" alt="">
+        </div>
+
+        <div class="items" id="item10" onclick="clicked(10, this.id)">
+            <img id="item10img" src="pictures/9.jpg" alt="">
+        </div>
+        <div class="items" id="item11" onclick="clicked(11, this.id)">
+            <img id="item11img" src="pictures/5.jpg" alt="">
+        </div>
+        <div class="items" id="item12" onclick="clicked(12, this.id)">
+            <img id="item12img" src="pictures/6.jpg" alt="">
+        </div>
+        <div class="items" id="item13" onclick="clicked(13, this.id)">
+            <img id="item13img" src="pictures/7.jpg" alt="">
+        </div>
+        <div class="items" id="item14" onclick="clicked(14, this.id)">
+            <img id="item14img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item15" onclick="clicked(15, this.id)">
+            <img id="item15img" src="pictures/5.jpg" alt="">
+        </div>
+        <div class="items" id="item16" onclick="clicked(16, this.id)">
+            <img id="item16img" src="pictures/2.jpg" alt="">
+        </div>
+        <div class="items" id="item17" onclick="clicked(17, this.id)">
+            <img id="item17img" src="pictures/8.jpg" alt="">
+        </div>
+        <div class="items" id="item18" onclick="clicked(18, this.id)">
+            <img id="item18img" src="pictures/2.jpg" alt="">
+        </div>
+        <div class="items" id="item19" onclick="clicked(19, this.id)">
+            <img id="item19img" src="pictures/4.jpg" alt="">
+        </div>
+
+
+        <div class="items" id="item20" onclick="clicked(20, this.id)">
+            <img id="item20img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item21" onclick="clicked(21, this.id)">
+            <img id="item21img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item22" onclick="clicked(22, this.id)">
+            <img id="item22img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item23" onclick="clicked(23, this.id)">
+            <img id="item23img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item24" onclick="clicked(24, this.id)">
+            <img id="item24img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item25" onclick="clicked(25, this.id)">
+            <img id="item25img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item26" onclick="clicked(26, this.id)">
+            <img id="item26img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item27" onclick="clicked(27, this.id)">
+            <img id="item27img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item28" onclick="clicked(28, this.id)">
+            <img id="item28img" src="pictures/4.jpg" alt="">
+        </div>
+        <div class="items" id="item29" onclick="clicked(29, this.id)">
+            <img id="item29img" src="pictures/4.jpg" alt="">
+        </div>
+
+
+    </div>
+    <p id="message"></p>
+
+    <script src="memoryGame.js">
+        
+       </script>
+</body>
+
+</html>

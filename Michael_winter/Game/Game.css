@@ -1,0 +1,19 @@
+body{
+    margin-top: 270px;
+    background-color:burlywood
+}
+h3{
+    position: absolute;
+    top: 150px;
+    left: 40%;
+    
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 400px;
+    margin:auto;
+    gap: 5px;
+    cursor: pointer;
+}

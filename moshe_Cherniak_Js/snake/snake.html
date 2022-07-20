@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake</title>
+    <link rel="icon" href="pictures/snake1.webp">
+    <link rel="stylesheet" href="snake.css">
+</head>
+
+<body>
+    <div id="snakeBoard"></div>
+    <div id="start" onclick="startGame()">start</div>
+    <div id="score"></div>
+
+    <div id="nav">
+        <img src="pictures/מפתח.png" alt="">
+        <h2 id="thePlayer"></h2>
+        <div id="navDiv" onclick="login()">login</div>
+        <div id="navDiv" onclick="register()">register</div>
+
+        <h2>your <br>record</h2>
+        <div id="record" class="pointDiv"></div>
+        <h2>your <br>level</h2>
+        <div id="level" class="pointDiv"></div>
+        <div id="navDiv" onclick="level1()">to level 1</div>
+        <div id="navDiv" onclick="navGames()">navegation</div>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+
+</html>

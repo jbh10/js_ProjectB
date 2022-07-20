@@ -1,0 +1,8 @@
+let player = JSON.parse(localStorage.getItem("thisPlayer"));
+document.getElementById('player').innerHTML = 
+    (`you have ${player.points} points`)
+
+
+function newGame() {
+    window.location.href = "../myGame/myGame.html"
+}

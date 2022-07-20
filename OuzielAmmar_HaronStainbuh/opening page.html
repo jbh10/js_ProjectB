@@ -1,0 +1,82 @@
+
+<html>
+
+  <head>
+
+    <style>
+      body{
+        background-image: url(IMAGES/jungle.jpg);
+        background-size: contain;
+      }
+
+h1 {
+  
+  font-family:'Russo One', sans-serif;
+  font-size: 75px;
+  color: #571820fb;
+text-align: center;
+
+}
+h2{
+  font-family:'Russo One', sans-serif;
+  font-size: 50px;
+  color: #571820fb;
+text-align: center;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: 'Georgia', sans-serif;
+  font-size: 28px;
+  color: #621919;
+  cursor: pointer;
+  background-color: #ece93f;
+  border: 3px solid #555;
+  height: 100px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+.video{
+    height: 330px;
+    width: 500px;
+    border-radius: 10%;
+    background-image: url(https://a.disquscdn.com/get?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F3o72F8t9TDi2xVnxOE%2Fgiphy.gif&key=EbpXc8eTAlAjVurZpfHr2g&w=300&h);
+    background-size: contain;
+    display: block;
+    margin: auto;
+}
+#a1{
+  display: none;
+}
+
+
+    </style>
+
+
+  </head>
+
+  <body>
+    <audio id="a1" src="IMAGES/lost2.wav" loop="loop" autoplay="autoplay"></audio>
+    <h1>"Banana Monkey game"</h1>
+
+    <a href="register.html"><button class="button button1" >Click to start playing</button></a>
+    <br><br><br>
+    <h2>🐍 🍌 🍌 🕷️</h2>
+
+    <img class="video">
+
+    <script>
+
+window.onload=function(){
+ document.getElementById("a1").play()
+ }
+
+    </script>
+
+  </body>
+
+</html>

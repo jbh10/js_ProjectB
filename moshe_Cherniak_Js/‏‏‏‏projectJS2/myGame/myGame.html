@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myGame</title>
+    <link rel="stylesheet" href="myGame.css">
+</head>
+
+<body>
+    <header>
+    
+    <div id="nav"> 
+        <img src="../pictures/מפתח.png" alt="">
+        <h2 id="thePlayer"></h2>
+        <div id="navDiv" onclick="login()">login</div>
+        <div id="navDiv" onclick="register()">register</div>
+    
+        <h2>your <br>wallet</h2>
+        <div id="points" class="pointDiv"></div>
+    
+        <button id="hint" class="pointDiv" onclick="hint()">get hint (10 points)</button>
+
+        <button id="lastGame" class="pointDiv">get the last game</button>
+        <div id="navDiv" onclick="navGames()">navegation</div>
+    </div>
+</header>
+
+ 
+
+<main>
+    <div id="game">
+        
+    <div id="buttonStart" onclick="startNewGame()">
+        START
+    </div>
+    <div id="main">
+        <div class="mainB" id="mainA">
+            <p id="mainP">THE MAIN COLORS</p>
+        </div>
+        <div class="mainB" id="mainColor">
+            <div class="squares" id="main0"></div>
+            <div class="squares" id="main1"></div>
+            <div class="squares" id="main2"></div>
+            <div class="squares" id="main3"></div>
+        </div>
+    </div>
+    </div>
+</main>
+
+
+
+    <script src="myGame.js">
+        
+    </script>
+</body>
+
+</html>

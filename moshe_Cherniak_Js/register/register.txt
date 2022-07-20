@@ -1,0 +1,31 @@
+function register() {
+    let fname = document.getElementById("firstName").value;
+    let lname = document.getElementById("lastName").value;
+    let userName = document.getElementById("userName").value;
+    let pass = document.getElementById("password").value;
+
+    const newPlaer = {
+        firstName: fname,
+        lastName: lname,
+        userName: userName,
+        password: pass,
+        points: 0
+    }
+
+    let players = JSON.parse(localStorage.getItem("players")) || [];
+    let cheackPlayer = true;
+  
+    for (const iterator of players) {
+         if (iterator.userName == userName) {
+            alert("the name already created");
+            cheackPlayer = false
+        }
+    }
+    if (cheackPlayer) {
+        players.push(newPlaer);
+        window.location = "../login/login.html"
+        localStorage.setItem("players", JSON.stringify(players));
+        console.log(players);
+    }
+
+}

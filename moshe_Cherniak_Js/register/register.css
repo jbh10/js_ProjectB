@@ -1,0 +1,24 @@
+body {
+    background-color: rgb(250, 240, 226);
+}
+#register {
+    width: 400px;
+    height: 550px;
+    position: relative;
+    margin: 100px auto;
+    padding: 25px;
+    text-align: center;
+    background-image:  linear-gradient(rgba(255, 255, 255, 0.582), 
+    rgba(255, 255, 255, 0.5)),
+    url("../picturesMain/wood-background-wallpaper-preview.jpg");
+    font-size: 20px;
+    border: 6px groove rgb(224, 177, 46);
+}
+input {
+    height: 35px;
+}
+button {
+    width: 60px;
+    height: 30px;
+    
+}

@@ -1,0 +1,50 @@
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.637),
+            rgba(255, 255, 255, 0.651)),
+        url("picturesMain/games.png");
+    background-size: contain;
+}
+
+#nav {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.div1 {
+    width: 340px;
+    height: 340px;
+    border: 10px groove red;
+    margin: 40px;
+}
+
+.div1:hover {
+    border-color: rgb(255, 205, 97);
+}
+
+div {
+    transition: all 0.3s;
+}
+
+#game1 {
+    background: url("picturesMain/cardrive.webp") no-repeat ;
+    background-size: 340px 340px;
+    cursor: pointer;
+}
+
+#game2 {
+    background-image: url("picturesMain/בול-פגיעה.jpg");
+    background-size: contain;
+    cursor: pointer;
+}
+
+#game3 {
+    background-image: url("picturesMain/memoryGame.png");
+    background-size: contain;
+    cursor: pointer;
+}
+#game4 {
+    background-image: url("picturesMain/snake2.webp");
+    background-size: contain;
+    cursor: pointer;
+}

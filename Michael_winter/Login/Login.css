@@ -1,0 +1,35 @@
+body{
+    background-image: url('../Game/assets/cartoon-illustration-fairy-forest-game-ui_284645-1078.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    align-items: center;
+    text-align: center; 
+}
+.box1{
+    color: wheat;
+}
+.box2{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid wheat;
+    width: 350px;
+    height: 200px;
+    background-color: 0;
+    color: wheat;
+}
+.box3{
+    color: white;
+}
+input, button{
+    background-color: wheat;
+}

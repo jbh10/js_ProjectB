@@ -1,0 +1,24 @@
+body{
+    background-color: aquamarine;
+    font-family: sans-serif;
+    background-image: url('./assets/cartoon-illustration-fairy-forest-game-ui_284645-1078.webp');
+}
+.register{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    align-items: center;
+    text-align: center;
+    border: 2px;
+    background-image: url('../Game/assets/cartoon-illustration-fairy-forest-game-ui_284645-1078.webp');
+    font-size:x-large;
+    color:chartreuse;
+}
+h1{
+    margin: 50px;
+    font-size:xx-large;
+}
+.link{
+    margin-top: 50px;
+    color:chartreuse;
+}

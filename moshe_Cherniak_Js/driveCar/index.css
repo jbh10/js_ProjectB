@@ -1,0 +1,110 @@
+body {
+    background-color: rgba(204, 252, 157, 0.644);
+}
+
+#nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    left: 2%;
+    top: 15%;
+    width: 140px;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(219, 148, 81, 0.432);
+
+}
+
+#nav>img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+
+}
+
+#navDiv {
+    width: 80px;
+    height: 30px;
+    border: 3px solid rgb(151, 110, 22);
+    border-radius: 20%;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px auto;
+    background-color: rgba(238, 183, 138, 0.753);
+}
+
+h2 {
+    color: rgb(70, 110, 110);
+    font-size: 20px;
+    text-align: center;
+    margin: 15px auto;
+    width: 100px;
+}
+
+.pointDiv {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(151, 110, 22);
+    text-align: center;
+    font-size: 50px;
+    border-radius: 50%;
+    margin:10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgba(238, 183, 138, 0.753);
+    font-size: 60px;
+}
+
+#navDiv:hover {
+    background-color: rgba(224, 145, 81, 0.753);
+}
+
+#road {
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 540px;
+    height: 800px;
+    background-image: url("pictures/bg.jpg");
+    background-size: contain;
+    overflow: hidden;
+    border: 5px groove gray;
+}
+
+#myCar {
+    position: absolute;
+    top: 600px;
+    left: 0px;
+    width: 180px;
+    height: 180px;
+    background: url("pictures/car.png") no-repeat center;
+    background-size: contain; 
+}
+
+.anotherCar {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 0px;
+    left: 0px;
+    background: url("pictures/car2.png") no-repeat center;
+    background-size: contain;
+}
+
+#newGame,
+#score {
+    position: relative;
+    width: 160px;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 35px;
+    cursor: pointer;
+    border: 3px solid rgba(71, 64, 64, 0.76);
+    border-radius: 10px;
+}
+
+#score {
+    display: none;
+}

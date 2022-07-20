@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        h1{
+           background-color: rgba(240, 224, 10, 0.931);
+padding: 10px;
+font-size:30px;
+color: rgb(21, 173, 7);
+border-radius: 2%;
+text-align: center;
+       }
+       img{
+    display: block;
+    margin: auto;
+       }
+body{
+ background-color: rgba(26, 177, 51, 0.623);
+
+}
+
+.tofes{
+display: block;
+margin: auto;
+padding: 50px 65px 30px 30px;
+/* background-color: rgb(0, 0, 0); */
+background-color: rgba(240, 224, 10, 0.931);
+height: 250px;
+width: 500px;
+border-radius: 10%;
+border: solid rgba(100, 62, 19, 0.637);
+text-align: center;
+
+}
+
+</style>
+        
+</head>
+<body>
+    <h1>Registration</h1>
+    <img src="IMAGES/monkey2.jpg" alt="" height="500px" width="450px">
+<br><br>
+    <table class="tofes">
+        <tr>
+          <th>
+            Name: <input type="text" id="userName" />
+            <br /><br>
+            Last Name: <input type="text" id="lastName" />
+            <br><br>
+            Password: <input type="password" id="password" />
+            <br><br>
+            <button id="butSaveUser" onclick="saveUser()">Save User</button>
+            <br /><br></th>
+          <td>
+        </td>
+        </tr>
+       
+    
+        
+    
+    <script>
+        
+            
+        
+        function saveUser() {
+            let first = document.getElementById('userName').value;
+            let last = document.getElementById('lastName').value;
+            let password = document.getElementById('password').value;
+
+            if (!first || !password || !last) {
+                return alert("Name or Password are not valid");
+            }
+
+            let checkUsers = JSON.parse(localStorage.getItem("users"))
+            const isUserRegisterd = checkUsers?.find(u => u.firstName === first && u.lastName === last); 
+
+            if (isUserRegisterd) {
+               
+                return alert("user allready exist");
+            }
+
+            let user = {
+                firstName: first,
+                lastName: last,
+                password: password,
+                score: 15
+            }
+            localStorage.setItem("activeUser", JSON.stringify(user));
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
+            window.location.href = "play.html";
+            return
+        }
+    </script>
+</body>
+</html>
